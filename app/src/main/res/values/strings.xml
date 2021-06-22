@@ -1,3 +1,16 @@
 <resources>
     <string name="app_name">I-has-quest</string>
+    <string name="login">Login</string>
+    <string name="username">Username</string>
+    <string name="password">Password</string>
+    <string name="log_in">Log In</string>
+    <string name="register">Registration</string>
+    <string name="i_has_quest">I has Quest</string>
+    <string name="repeat_password">Repeat password</string>
+    <string name="password_repeat">Password repeat</string>
+    <string name="gender">Gender</string>
+    <string name="registration">Registration</string>
+    <string name="person">Person</string>
+    <string name="backpack">Backpack</string>
+    <string name="settings">Settings</string>
 </resources>
