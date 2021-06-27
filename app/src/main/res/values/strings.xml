@@ -13,4 +13,10 @@
     <string name="person">Person</string>
     <string name="backpack">Backpack</string>
     <string name="settings">Settings</string>
+    <string name="quest">quest</string>
+    <string name="map">map</string>
+    <string name="current">current</string>
+    <string name="new_quest">new</string>
+    <string name="resources">Resources:</string>
+    <string name="use">use</string>
 </resources>
