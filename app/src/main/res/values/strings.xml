@@ -19,4 +19,8 @@
     <string name="new_quest">new</string>
     <string name="resources">Resources:</string>
     <string name="use">use</string>
+    <string name="title">Title:</string>
+    <string name="name">Name:</string>
+    <string name="lvl">Lvl:</string>
+    <string name="experience">Experience:</string>
 </resources>

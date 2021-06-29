@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@+id/bottom_navi"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:orientation="vertical">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_marginTop="16dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/text_title"
+                    android:layout_marginStart="7dp"
+                    app:layout_constraintStart_toEndOf="@id/iv_photo"
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:text="@string/title"
+                    android:textSize="20sp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+                <TextView
+                    android:layout_marginStart="7dp"
+                    android:id="@+id/tv_title"
+                    app:layout_constraintStart_toEndOf="@id/text_title"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:text="Веселый роджер"
+                    android:textSize="20sp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+                <ImageView
+                    android:layout_width="110dp"
+                    android:layout_height="110dp"
+                    android:src="@drawable/person"
+                    android:background="@color/gray"
+                    app:layout_constraintStart_toStartOf="@id/iv_photo"
+                    app:layout_constraintTop_toTopOf="@id/iv_photo"
+                    app:layout_constraintEnd_toEndOf="@id/iv_photo"
+                    app:layout_constraintBottom_toBottomOf="@id/iv_photo"
+                    />
+
+                <ImageView
+                    android:id="@+id/iv_photo"
+                    android:layout_width="110dp"
+                    android:layout_height="110dp"
+                    android:src="@drawable/person"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/tv_name_text"
+                    android:layout_marginStart="7dp"
+                    app:layout_constraintStart_toEndOf="@id/iv_photo"
+                    app:layout_constraintTop_toBottomOf="@id/tv_title"
+                    android:text="@string/name"
+                    android:textSize="20sp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+                <TextView
+                    android:id="@+id/tv_name"
+                    android:layout_marginStart="7dp"
+                    app:layout_constraintStart_toEndOf="@id/tv_name_text"
+                    app:layout_constraintTop_toBottomOf="@id/tv_title"
+                    tools:text="Gohan"
+                    android:textSize="20sp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+                <TextView
+                    android:id="@+id/tv_lvl_text"
+                    android:layout_marginStart="7dp"
+                    app:layout_constraintStart_toEndOf="@id/iv_photo"
+                    app:layout_constraintTop_toBottomOf="@id/tv_name_text"
+                    android:text="@string/lvl"
+                    android:textSize="20sp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+                <TextView
+                    android:id="@+id/tv_lvl"
+                    android:layout_marginStart="7dp"
+                    app:layout_constraintStart_toEndOf="@id/tv_lvl_text"
+                    app:layout_constraintTop_toBottomOf="@id/tv_name_text"
+                    tools:text="1"
+                    android:textSize="20sp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+                <TextView
+                    android:id="@+id/tv_experience_text"
+                    android:layout_marginStart="7dp"
+                    app:layout_constraintStart_toEndOf="@id/iv_photo"
+                    app:layout_constraintTop_toBottomOf="@id/tv_lvl_text"
+                    android:text="@string/experience"
+                    android:textSize="20sp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+                <TextView
+                    android:id="@+id/tv_experience"
+                    android:layout_marginStart="7dp"
+                    app:layout_constraintStart_toEndOf="@id/tv_experience_text"
+                    app:layout_constraintTop_toBottomOf="@id/tv_lvl"
+                    tools:text="1"
+                    android:textSize="20sp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottom_navi"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:menu="@menu/menu" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
