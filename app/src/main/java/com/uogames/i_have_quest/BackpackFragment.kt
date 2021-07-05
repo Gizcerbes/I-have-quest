@@ -26,6 +26,7 @@ class BackpackFragment:Fragment() {
     }
 
     private fun initNavigationMenu() {
+        navigationMenu?.selectedItemId = R.id.item_basket
         navigationMenu?.setOnNavigationItemSelectedListener {
             when (it.itemId) {
                 R.id.item_map -> {
@@ -37,8 +38,7 @@ class BackpackFragment:Fragment() {
                     true
                 }
                 R.id.item_basket -> {
-                    view?.findNavController()?.navigate(R.id.backpackFragment)
-                    true
+                    false
                 }
                 R.id.item_person -> {
                     view?.findNavController()?.navigate(R.id.action_backpackFragment_to_personFragment)
@@ -47,7 +47,6 @@ class BackpackFragment:Fragment() {
                 else -> false
             }
         }
-        navigationMenu?.selectedItemId = R.id.backpackFragment
     }
 
 }

@@ -26,7 +26,7 @@ class QuestFragment: Fragment() {
     }
 
     private fun initNavigationMenu() {
-
+        navigationMenu?.selectedItemId = R.id.item_quest
         navigationMenu?.setOnNavigationItemSelectedListener {
             when (it.itemId) {
                 R.id.item_map -> {
@@ -34,8 +34,7 @@ class QuestFragment: Fragment() {
                     true
                 }
                 R.id.item_quest -> {
-                    view?.findNavController()?.navigate(R.id.questFragment)
-                    true
+                    false
                 }
                 R.id.item_basket -> {
                     view?.findNavController()?.navigate(R.id.action_questFragment_to_backpackFragment)
@@ -48,7 +47,7 @@ class QuestFragment: Fragment() {
                 else -> false
             }
         }
-        navigationMenu?.selectedItemId = R.id.questFragment
+
     }
 
 }

@@ -138,11 +138,11 @@ class MapsFragment : Fragment() {
 
 
     private fun initNavigationMenu() {
+        navigationMenu?.selectedItemId = R.id.item_map
         navigationMenu?.setOnNavigationItemSelectedListener {
             when (it.itemId) {
                 R.id.item_map -> {
-                    view?.findNavController()?.navigate(R.id.mapsFragment)
-                    true
+                    false
                 }
                 R.id.item_quest -> {
                     view?.findNavController()?.navigate(R.id.action_mapsFragment_to_questFragment)
@@ -159,7 +159,6 @@ class MapsFragment : Fragment() {
                 else -> false
             }
         }
-        navigationMenu?.selectedItemId = R.id.mapsFragment
     }
 
 }

@@ -26,6 +26,7 @@ class PersonFragment : Fragment() {
     }
 
     private fun initNavigationMenu() {
+        navigationMenu?.selectedItemId = R.id.item_person
         navigationMenu?.setOnNavigationItemSelectedListener {
             when (it.itemId) {
                 R.id.item_map -> {
@@ -41,13 +42,11 @@ class PersonFragment : Fragment() {
                     true
                 }
                 R.id.item_person -> {
-                    view?.findNavController()?.navigate(R.id.personFragment)
-                    true
+                    false
                 }
                 else -> false
             }
         }
-        navigationMenu?.selectedItemId = R.id.personFragment
     }
 
 }
