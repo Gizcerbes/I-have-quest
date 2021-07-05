@@ -8,7 +8,7 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
-class QuestFragment: Fragment() {
+class BackpackFragment:Fragment() {
 
     private val navigationMenu by lazy { view?.findViewById<BottomNavigationView>(R.id.bottom_navi) }
 
@@ -17,7 +17,7 @@ class QuestFragment: Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.fragment_quest, container, false)
+        return inflater.inflate(R.layout.fragment_backpack, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -26,29 +26,28 @@ class QuestFragment: Fragment() {
     }
 
     private fun initNavigationMenu() {
-
         navigationMenu?.setOnNavigationItemSelectedListener {
             when (it.itemId) {
                 R.id.item_map -> {
-                    view?.findNavController()?.navigate(R.id.action_questFragment_to_mapsFragment)
+                    view?.findNavController()?.navigate(R.id.action_backpackFragment_to_mapsFragment)
                     true
                 }
                 R.id.item_quest -> {
-                    view?.findNavController()?.navigate(R.id.questFragment)
+                    view?.findNavController()?.navigate(R.id.action_backpackFragment_to_questFragment)
                     true
                 }
                 R.id.item_basket -> {
-                    view?.findNavController()?.navigate(R.id.action_questFragment_to_backpackFragment)
+                    view?.findNavController()?.navigate(R.id.backpackFragment)
                     true
                 }
                 R.id.item_person -> {
-                    view?.findNavController()?.navigate(R.id.action_questFragment_to_personFragment)
+                    view?.findNavController()?.navigate(R.id.action_backpackFragment_to_personFragment)
                     true
                 }
                 else -> false
             }
         }
-        navigationMenu?.selectedItemId = R.id.questFragment
+        navigationMenu?.selectedItemId = R.id.backpackFragment
     }
 
 }

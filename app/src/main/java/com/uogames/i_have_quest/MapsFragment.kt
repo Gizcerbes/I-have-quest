@@ -14,6 +14,7 @@ import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.findNavController
 import com.google.android.gms.location.*
 import com.google.android.gms.maps.*
 import com.google.android.gms.maps.model.LatLng
@@ -140,24 +141,25 @@ class MapsFragment : Fragment() {
         navigationMenu?.setOnNavigationItemSelectedListener {
             when (it.itemId) {
                 R.id.item_map -> {
-                    Toast.makeText(this.context, "map", Toast.LENGTH_SHORT).show()
+                    view?.findNavController()?.navigate(R.id.mapsFragment)
                     true
                 }
                 R.id.item_quest -> {
-                    Toast.makeText(this.context, "quest", Toast.LENGTH_SHORT).show()
+                    view?.findNavController()?.navigate(R.id.action_mapsFragment_to_questFragment)
                     true
                 }
                 R.id.item_basket -> {
-                    Toast.makeText(this.context, "basket", Toast.LENGTH_SHORT).show()
+                    view?.findNavController()?.navigate(R.id.action_mapsFragment_to_backpackFragment)
                     true
                 }
                 R.id.item_person -> {
-                    Toast.makeText(this.context, "person", Toast.LENGTH_SHORT).show()
+                    view?.findNavController()?.navigate(R.id.action_mapsFragment_to_personFragment)
                     true
                 }
                 else -> false
             }
         }
+        navigationMenu?.selectedItemId = R.id.mapsFragment
     }
 
 }
