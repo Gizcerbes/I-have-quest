@@ -1,9 +1,8 @@
-package com.uogames.i_has_quest
+package com.uogames.i_have_quest
 
 import android.content.pm.PackageManager
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import androidx.lifecycle.ViewModelProvider
 
 class MainActivity : AppCompatActivity() {

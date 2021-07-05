@@ -1,4 +1,4 @@
-package com.uogames.i_has_quest
+package com.uogames.i_have_quest
 
 import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.ext.junit.runners.AndroidJUnit4
