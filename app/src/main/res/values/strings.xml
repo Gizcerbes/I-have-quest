@@ -5,7 +5,7 @@
     <string name="password">Password</string>
     <string name="log_in">Log In</string>
     <string name="register">Registration</string>
-    <string name="i_has_quest">I has Quest</string>
+    <string name="i_have_quest">I have Quest</string>
     <string name="repeat_password">Repeat password</string>
     <string name="password_repeat">Password repeat</string>
     <string name="gender">Gender</string>
@@ -22,5 +22,12 @@
     <string name="title">Title:</string>
     <string name="name">Name:</string>
     <string name="lvl">Lvl:</string>
-    <string name="experience">Experience:</string>
+    <string name="experience">experience:</string>
+    <string name="characteristics">Characteristics</string>
+    <string name="force">force:</string>
+    <string name="defense">defense:</string>
+    <string name="agility">agility:</string>
+    <string name="health">health:</string>
+    <string name="equipment">Equipment</string>
+    <string name="professions">Professions</string>
 </resources>
