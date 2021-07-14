@@ -1,36 +1,25 @@
 package com.uogames.i_have_quest
 
-import android.Manifest
-import android.annotation.SuppressLint
-import android.content.pm.PackageManager
 import android.os.Bundle
-import android.os.Looper
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
-import androidx.core.app.ActivityCompat
-import androidx.core.content.ContextCompat
+import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.findNavController
-import com.google.android.gms.location.*
 import com.google.android.gms.maps.*
-import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.MapStyleOptions
-import com.google.android.material.bottomnavigation.BottomNavigationView
+import com.uogames.i_have_quest.databinding.FragmentMapsBinding
+import com.uogames.i_have_quest.models.LocationModel
+import com.uogames.i_have_quest.models.PermissionModel
 
 class MapsFragment : Fragment() {
 
-    private val navigationMenu by lazy { view?.findViewById<BottomNavigationView>(R.id.bottom_navi) }
+    //private val navigationMenu by lazy { view?.findViewById<BottomNavigationView>(R.id.bottom_navi) }
     private val mapFragment by lazy { childFragmentManager.findFragmentById(R.id.map) as SupportMapFragment? }
 
-
-    // The entry point to the Fused Location Provider.
-    private val fusedLocationProviderClient by lazy {
-        LocationServices.getFusedLocationProviderClient(requireActivity())
-    }
     private var googleMap: GoogleMap? = null
 
     private val permissionModel by lazy {
@@ -39,29 +28,31 @@ class MapsFragment : Fragment() {
         )
     }
 
-    private val locationModel by lazy { ViewModelProvider(requireActivity()).get(LocationModel::class.java) }
+    private val locationModel by lazy {
+        ViewModelProvider.AndroidViewModelFactory(requireActivity().application)
+            .create(LocationModel::class.java)
+    }
 
-    private val defaultLocation = LatLng(-33.8523341, 151.2106085)
+    private lateinit var binding: FragmentMapsBinding
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
-        return inflater.inflate(R.layout.fragment_maps, container, false)
+    ): View {
+        binding = DataBindingUtil.inflate(inflater, R.layout.fragment_maps, container, false)
+        return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         mapFragment?.getMapAsync { onMapReady(it) }
         initNavigationMenu()
-        permissionModel.locationPermission.observe(this.requireActivity()) {
-            updateLocationUI(it)
-        }
+        permissionModel.locationPermission.observe(requireActivity()) { updateLocationUI(it) }
         locationModel.myLatLng.observe(this.requireActivity()) {
             googleMap?.moveCamera(CameraUpdateFactory.newLatLngZoom(it, 15f))
         }
-        getLocationPermission()
+        permissionModel.getLocationPermission(requireActivity())
     }
 
     fun onMapReady(googleMap: GoogleMap) {
@@ -85,7 +76,7 @@ class MapsFragment : Fragment() {
             if (access) {
                 googleMap?.isMyLocationEnabled = true
                 googleMap?.uiSettings?.isMyLocationButtonEnabled = false
-                startLocationsUpdates()
+                locationModel.startService()
             } else {
                 googleMap?.isMyLocationEnabled = false
                 googleMap?.uiSettings?.isMyLocationButtonEnabled = false
@@ -95,51 +86,9 @@ class MapsFragment : Fragment() {
         }
     }
 
-    @SuppressLint("MissingPermission")
-    private fun startLocationsUpdates() {
-        val locationCallBack = object : LocationCallback() {
-            override fun onLocationResult(locationResult: LocationResult?) {
-                locationResult ?: return
-                for (location in locationResult.locations) {
-                    locationModel.setMyLatLng(LatLng(location.latitude, location.longitude))
-                }
-            }
-        }
-        fusedLocationProviderClient.requestLocationUpdates(
-            getRequest(),
-            locationCallBack,
-            Looper.getMainLooper()
-        )
-    }
-
-    private fun getRequest() = LocationRequest.create().apply {
-        interval = 2000
-        fastestInterval = 1000
-        priority = LocationRequest.PRIORITY_HIGH_ACCURACY
-    }
-
-    private fun isLocationPermission(): Boolean {
-        val locationPermissionGranted = context?.let {
-            ContextCompat.checkSelfPermission(it, Manifest.permission.ACCESS_FINE_LOCATION)
-        } == PackageManager.PERMISSION_GRANTED
-        permissionModel.setLocationPermission(locationPermissionGranted)
-        return locationPermissionGranted
-    }
-
-
-    private fun getLocationPermission() {
-        if (!isLocationPermission()) {
-            ActivityCompat.requestPermissions(
-                requireActivity(), arrayOf(Manifest.permission.ACCESS_FINE_LOCATION),
-                MainActivity.PERMISSIONS_REQUEST_ACCESS_FINE_LOCATION
-            )
-        }
-    }
-
-
     private fun initNavigationMenu() {
-        navigationMenu?.selectedItemId = R.id.item_map
-        navigationMenu?.setOnNavigationItemSelectedListener {
+        binding.bottomNavi.selectedItemId = R.id.item_map
+        binding.bottomNavi.setOnNavigationItemSelectedListener {
             when (it.itemId) {
                 R.id.item_map -> {
                     false
@@ -149,7 +98,8 @@ class MapsFragment : Fragment() {
                     true
                 }
                 R.id.item_basket -> {
-                    view?.findNavController()?.navigate(R.id.action_mapsFragment_to_backpackFragment)
+                    view?.findNavController()
+                        ?.navigate(R.id.action_mapsFragment_to_backpackFragment)
                     true
                 }
                 R.id.item_person -> {

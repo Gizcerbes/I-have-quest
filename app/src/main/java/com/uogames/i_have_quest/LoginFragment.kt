@@ -6,24 +6,22 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.ImageView
+import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import com.google.android.material.textfield.TextInputLayout
+import com.uogames.i_have_quest.databinding.FragmentLoginBinding
 
 class LoginFragment : Fragment() {
 
-    private val imgLogo by lazy { this.view?.findViewById<ImageView>(R.id.img_logo) }
-    private val tiUserName by lazy { this.view?.findViewById<TextInputLayout>(R.id.ti_username) }
-    private val tiPassword by lazy { this.view?.findViewById<TextInputLayout>(R.id.ti_password) }
-    private val btnLogIn by lazy { this.view?.findViewById<Button>(R.id.btn_registration) }
-    private val btnRegister by lazy { this.view?.findViewById<Button>(R.id.btn_registration) }
-
+    private lateinit var binding:FragmentLoginBinding
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
-        return inflater.inflate(R.layout.fragment_login, container, false)
+    ): View {
+        binding = DataBindingUtil.inflate(inflater, R.layout.fragment_login, container, false)
+        return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

@@ -4,6 +4,7 @@ import android.content.pm.PackageManager
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.lifecycle.ViewModelProvider
+import com.uogames.i_have_quest.models.PermissionModel
 
 class MainActivity : AppCompatActivity() {
 
@@ -36,7 +37,6 @@ class MainActivity : AppCompatActivity() {
                 }
             }
         }
-
     }
 
 }
