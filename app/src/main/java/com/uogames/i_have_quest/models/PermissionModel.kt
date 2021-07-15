@@ -8,7 +8,7 @@ import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.MutableLiveData
-import com.uogames.i_have_quest.MainActivity
+import com.uogames.i_have_quest.ui.MainActivity
 
 class PermissionModel(application: Application) : AndroidViewModel(application) {
     private val _locationPermission = MutableLiveData<Boolean>()

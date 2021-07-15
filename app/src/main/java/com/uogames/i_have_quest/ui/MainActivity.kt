@@ -1,9 +1,10 @@
-package com.uogames.i_have_quest
+package com.uogames.i_have_quest.ui
 
 import android.content.pm.PackageManager
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.lifecycle.ViewModelProvider
+import com.uogames.i_have_quest.R
 import com.uogames.i_have_quest.models.PermissionModel
 
 class MainActivity : AppCompatActivity() {

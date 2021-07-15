@@ -1,4 +1,4 @@
-package com.uogames.i_have_quest
+package com.uogames.i_have_quest.ui
 
 import android.os.Bundle
 import android.util.Log
@@ -11,6 +11,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.findNavController
 import com.google.android.gms.maps.*
 import com.google.android.gms.maps.model.MapStyleOptions
+import com.uogames.i_have_quest.R
 import com.uogames.i_have_quest.databinding.FragmentMapsBinding
 import com.uogames.i_have_quest.models.LocationModel
 import com.uogames.i_have_quest.models.PermissionModel

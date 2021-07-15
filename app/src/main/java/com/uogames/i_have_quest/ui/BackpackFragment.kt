@@ -1,4 +1,4 @@
-package com.uogames.i_have_quest
+package com.uogames.i_have_quest.ui
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -7,7 +7,7 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
-import com.google.android.material.bottomnavigation.BottomNavigationView
+import com.uogames.i_have_quest.R
 import com.uogames.i_have_quest.databinding.FragmentBackpackBinding
 
 class BackpackFragment : Fragment() {
