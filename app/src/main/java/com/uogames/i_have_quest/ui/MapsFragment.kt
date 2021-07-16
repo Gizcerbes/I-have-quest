@@ -95,16 +95,16 @@ class MapsFragment : Fragment() {
                     false
                 }
                 R.id.item_quest -> {
-                    view?.findNavController()?.navigate(R.id.action_mapsFragment_to_questFragment)
+                    view?.findNavController()?.navigate(R.id.questFragment)
                     true
                 }
                 R.id.item_basket -> {
                     view?.findNavController()
-                        ?.navigate(R.id.action_mapsFragment_to_backpackFragment)
+                        ?.navigate(R.id.backpackFragment)
                     true
                 }
                 R.id.item_person -> {
-                    view?.findNavController()?.navigate(R.id.action_mapsFragment_to_personFragment)
+                    view?.findNavController()?.navigate(R.id.personFragment)
                     true
                 }
                 else -> false

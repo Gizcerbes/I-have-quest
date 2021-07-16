@@ -10,7 +10,7 @@ object GameApi {
 
     fun provideRetrofit(): GameService {
         val retrofit = Retrofit.Builder()
-            .baseUrl("https://localhost:8080/IHaveQuest")
+            .baseUrl("http://192.169.0.101:8080/IHaveQuest/")
             .addConverterFactory(GsonConverterFactory.create())
             .addCallAdapterFactory(CoroutineCallAdapterFactory.invoke())
             .build()

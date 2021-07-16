@@ -35,12 +35,12 @@ class BackpackFragment : Fragment() {
             when (it.itemId) {
                 R.id.item_map -> {
                     view?.findNavController()
-                        ?.navigate(R.id.action_backpackFragment_to_mapsFragment)
+                        ?.navigate(R.id.mapsFragment)
                     true
                 }
                 R.id.item_quest -> {
                     view?.findNavController()
-                        ?.navigate(R.id.action_backpackFragment_to_questFragment)
+                        ?.navigate(R.id.questFragment)
                     true
                 }
                 R.id.item_basket -> {
@@ -48,7 +48,7 @@ class BackpackFragment : Fragment() {
                 }
                 R.id.item_person -> {
                     view?.findNavController()
-                        ?.navigate(R.id.action_backpackFragment_to_personFragment)
+                        ?.navigate(R.id.personFragment)
                     true
                 }
                 else -> false

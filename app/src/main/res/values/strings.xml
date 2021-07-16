@@ -30,4 +30,5 @@
     <string name="health">health:</string>
     <string name="equipment">Equipment</string>
     <string name="professions">Professions</string>
+    <string name="exception_longer">Must be longer than {max} and less than {min}</string>
 </resources>

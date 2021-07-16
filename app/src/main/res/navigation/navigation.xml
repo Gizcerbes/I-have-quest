@@ -9,84 +9,33 @@
         android:id="@+id/loginFragment"
         android:name="com.uogames.i_have_quest.ui.LoginFragment"
         android:label="LoginFragment"
-        tools:layout="@layout/fragment_login">
-        <action
-            android:id="@+id/action_loginFragment_to_registrationFragment"
-            app:destination="@id/registrationFragment" />
-        <action
-            android:id="@+id/action_loginFragment_to_mapsFragment"
-            app:destination="@id/mapsFragment" />
-    </fragment>
+        tools:layout="@layout/fragment_login" />
     <fragment
         android:id="@+id/registrationFragment"
         android:name="com.uogames.i_have_quest.ui.RegistrationFragment"
         android:label="RegistrationFragment"
-        tools:layout="@layout/fragment_registration">
-        <action
-            android:id="@+id/action_registrationFragment_to_mapsFragment"
-            app:destination="@id/mapsFragment" />
-    </fragment>
+        tools:layout="@layout/fragment_registration" />
     <fragment
         android:id="@+id/mapsFragment"
         android:name="com.uogames.i_have_quest.ui.MapsFragment"
         android:label="fragment_maps"
-        tools:layout="@layout/fragment_maps">
-        <action
-            android:id="@+id/action_mapsFragment_to_questFragment"
-            app:destination="@id/questFragment" />
-        <action
-            android:id="@+id/action_mapsFragment_to_personFragment"
-            app:destination="@id/personFragment" />
-        <action
-            android:id="@+id/action_mapsFragment_to_backpackFragment"
-            app:destination="@id/backpackFragment" />
-    </fragment>
+        tools:layout="@layout/fragment_maps" />
     <fragment
         android:id="@+id/questFragment"
         android:name="com.uogames.i_have_quest.ui.QuestFragment"
         android:label="QuestFragment"
-        tools:layout="@layout/fragment_quest">
-        <action
-            android:id="@+id/action_questFragment_to_mapsFragment"
-            app:destination="@id/mapsFragment" />
-        <action
-            android:id="@+id/action_questFragment_to_personFragment"
-            app:destination="@id/personFragment" />
-        <action
-            android:id="@+id/action_questFragment_to_backpackFragment"
-            app:destination="@id/backpackFragment" />
-    </fragment>
+        tools:layout="@layout/fragment_quest" />
 
     <fragment
         android:id="@+id/personFragment"
         android:name="com.uogames.i_have_quest.ui.PersonFragment"
         android:label="PersonFragment"
-        tools:layout="@layout/fragment_person">
-        <action
-            android:id="@+id/action_personFragment_to_backpackFragment"
-            app:destination="@id/backpackFragment" />
-        <action
-            android:id="@+id/action_personFragment_to_mapsFragment"
-            app:destination="@id/mapsFragment" />
-        <action
-            android:id="@+id/action_personFragment_to_questFragment"
-            app:destination="@id/questFragment" />
-    </fragment>
+        tools:layout="@layout/fragment_person" />
     <fragment
         android:id="@+id/backpackFragment"
         android:name="com.uogames.i_have_quest.ui.BackpackFragment"
         android:label="BackpackFragment"
-        tools:layout="@layout/fragment_backpack">
-        <action
-            android:id="@+id/action_backpackFragment_to_personFragment"
-            app:destination="@id/personFragment" />
-        <action
-            android:id="@+id/action_backpackFragment_to_mapsFragment"
-            app:destination="@id/mapsFragment" />
-        <action
-            android:id="@+id/action_backpackFragment_to_questFragment"
-            app:destination="@id/questFragment" />
-    </fragment>
+        tools:layout="@layout/fragment_backpack" />
 
 
 </navigation>

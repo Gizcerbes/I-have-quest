@@ -1,7 +1,7 @@
 package com.uogames.i_have_quest.data.entities
 
-data class UserData(
-    val id: Int?,
+data class UserObjectData(
+    val id: Long?,
     val name: String?,
     val userKey: String?
 )

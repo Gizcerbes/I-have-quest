@@ -11,10 +11,10 @@ import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.uogames.i_have_quest.R
 import com.uogames.i_have_quest.databinding.FragmentQuestBinding
 
-class QuestFragment: Fragment() {
+class QuestFragment : Fragment() {
 
     private val navigationMenu by lazy { view?.findViewById<BottomNavigationView>(R.id.bottom_navi) }
-    private lateinit var binding : FragmentQuestBinding
+    private lateinit var binding: FragmentQuestBinding
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -35,18 +35,18 @@ class QuestFragment: Fragment() {
         navigationMenu?.setOnNavigationItemSelectedListener {
             when (it.itemId) {
                 R.id.item_map -> {
-                    view?.findNavController()?.navigate(R.id.action_questFragment_to_mapsFragment)
+                    view?.findNavController()?.navigate(R.id.mapsFragment)
                     true
                 }
                 R.id.item_quest -> {
                     false
                 }
                 R.id.item_basket -> {
-                    view?.findNavController()?.navigate(R.id.action_questFragment_to_backpackFragment)
+                    view?.findNavController()?.navigate(R.id.backpackFragment)
                     true
                 }
                 R.id.item_person -> {
-                    view?.findNavController()?.navigate(R.id.action_questFragment_to_personFragment)
+                    view?.findNavController()?.navigate(R.id.personFragment)
                     true
                 }
                 else -> false

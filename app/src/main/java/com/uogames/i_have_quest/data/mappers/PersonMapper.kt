@@ -6,12 +6,8 @@ import com.uogames.i_have_quest.networking.data.dto.PersonResponse
 class PersonMapper : Mapper<PersonResponse, PersonData> {
     override fun map(from: PersonResponse): PersonData {
         return PersonData(
-            id = from.id,
-            experience = from.experience,
-            image = from.image,
-            lvl = from.lvl,
-            personName = from.personName,
-            title = from.title
+            status = from.status?.let { StatusObjectMapper().map(it) },
+            person = from.person?.let { PersonObjectMapper().map(from.person) }
         )
     }
 }
