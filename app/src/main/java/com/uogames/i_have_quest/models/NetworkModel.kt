@@ -1,9 +1,9 @@
 package com.uogames.i_have_quest.models
 
-import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.uogames.i_have_quest.data.entities.CharacteristicsObjectData
 import com.uogames.i_have_quest.data.entities.LoginData
 import com.uogames.i_have_quest.data.entities.PersonObjectData
 import com.uogames.i_have_quest.data.entities.RegistrationData
@@ -24,34 +24,66 @@ class NetworkModel : ViewModel() {
     private val _personData = MutableLiveData<PersonObjectData>()
     val personData: LiveData<PersonObjectData> = _personData
 
+    private val _characteristicsData = MutableLiveData<CharacteristicsObjectData>()
+    val characteristicsData: LiveData<CharacteristicsObjectData> = _characteristicsData
 
-    fun logIn(login: String, password: String) {
+
+    fun logIn(login: String, password: String, block: (LoginData) -> Unit) {
         ioScope.launch {
-            gameRepository.logIn(login, password)?.let {
-                _loginData.postValue(it)
-                _personData.postValue(it.person)
+            try {
+                gameRepository.logIn(login, password)?.let {
+                    _loginData.postValue(it)
+                    _personData.postValue(it.person)
+                    mainScope.launch { block(it) }
+                }
+            } catch (e: Throwable) {
+
             }
         }
     }
 
     fun register(login: String, password: String, block: (RegistrationData) -> Unit) {
         ioScope.launch {
-            gameRepository.register(login, password)?.let {
-                mainScope.launch { block(it) }
+            try {
+                gameRepository.register(login, password)?.let {
+                    mainScope.launch { block(it) }
+                }
+            } catch (e: Throwable) {
+
             }
         }
     }
 
     fun updateMyPerson() {
         ioScope.launch {
-            loginData.value?.let {
-                Log.e("TAG", it.user?.userKey.toString())
-                Log.e("TAG", it.user?.id.toString())
-                gameRepository.getPersonByID(it.user?.userKey.toString(), it.user?.id.toString())
-                    ?.let { result ->
-                        Log.e("TAG", result.toString())
-                        _personData.postValue(result.person)
-                    }
+            try {
+                loginData.value?.let {
+                    gameRepository.getPersonByID(
+                        it.user?.userKey.toString(),
+                        it.user?.id.toString()
+                    )
+                        ?.let { result ->
+                            _personData.postValue(result.person)
+                        }
+                }
+            } catch (e: Throwable) {
+
+            }
+        }
+    }
+
+    fun updateCharacteristics() {
+        ioScope.launch {
+            try {
+                loginData.value?.let {
+                    val result = gameRepository.getCharacteristicById(
+                        it.user?.userKey.toString(),
+                        it.user?.id.toString()
+                    )
+                    result?.let { res -> _characteristicsData.postValue(res.characteristics) }
+                }
+            } catch (e: Throwable) {
+
             }
         }
     }

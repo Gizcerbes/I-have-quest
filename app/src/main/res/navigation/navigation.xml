@@ -36,6 +36,10 @@
         android:name="com.uogames.i_have_quest.ui.BackpackFragment"
         android:label="BackpackFragment"
         tools:layout="@layout/fragment_backpack" />
+    <fragment
+        android:id="@+id/chatFragment"
+        android:name="com.uogames.i_have_quest.ui.ChatFragment"
+        android:label="ChatFragment" />
 
 
 </navigation>

@@ -1,9 +1,6 @@
 package com.uogames.i_have_quest.networking
 
-import com.uogames.i_have_quest.networking.data.dto.LoginResponse
-import com.uogames.i_have_quest.networking.data.dto.PersonObjectResponse
-import com.uogames.i_have_quest.networking.data.dto.PersonResponse
-import com.uogames.i_have_quest.networking.data.dto.RegistrationResponse
+import com.uogames.i_have_quest.networking.data.dto.*
 import retrofit2.Response
 import retrofit2.http.GET
 import retrofit2.http.POST
@@ -43,4 +40,11 @@ interface GameService {
         name: String
     ): Response<PersonResponse>
 
+    @GET("characteristics")
+    suspend fun getCharacteristicsById(
+        @Query("userKey")
+        userKey: String,
+        @Query("id")
+        id: String
+    ) : Response<CharacteristicsResponse>
 }

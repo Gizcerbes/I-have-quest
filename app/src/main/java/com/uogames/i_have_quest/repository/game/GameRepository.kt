@@ -1,14 +1,8 @@
 package com.uogames.i_have_quest.repository.game
 
 import android.util.Log
-import com.uogames.i_have_quest.data.entities.LoginData
-import com.uogames.i_have_quest.data.entities.PersonData
-import com.uogames.i_have_quest.data.entities.PersonObjectData
-import com.uogames.i_have_quest.data.entities.RegistrationData
-import com.uogames.i_have_quest.data.mappers.LoginMapper
-import com.uogames.i_have_quest.data.mappers.PersonMapper
-import com.uogames.i_have_quest.data.mappers.PersonObjectMapper
-import com.uogames.i_have_quest.data.mappers.RegistrationMapper
+import com.uogames.i_have_quest.data.entities.*
+import com.uogames.i_have_quest.data.mappers.*
 import com.uogames.i_have_quest.networking.api.GameApi
 import com.uogames.i_have_quest.networking.data.dto.PersonResponse
 
@@ -18,6 +12,7 @@ class GameRepository {
     private val loginMapper = LoginMapper()
     private val registrationMapper = RegistrationMapper()
     private val personMapper = PersonMapper()
+    private val characteristicsMapper = CharacteristicsMapper()
 
     suspend fun logIn(login: String, password: String): LoginData? {
         val response = api.login(login, password)
@@ -52,6 +47,15 @@ class GameRepository {
         val response = api.getPersonByName(userKey, name)
         return if (response.isSuccessful) {
             response.body()?.let { personMapper.map(it) }
+        } else {
+            throw Throwable(response.errorBody().toString())
+        }
+    }
+
+    suspend fun getCharacteristicById(userKey: String, id: String): CharacteristicsData? {
+        val response = api.getCharacteristicsById(userKey, id)
+        return if (response.isSuccessful) {
+            response.body()?.let { characteristicsMapper.map(it) }
         } else {
             throw Throwable(response.errorBody().toString())
         }

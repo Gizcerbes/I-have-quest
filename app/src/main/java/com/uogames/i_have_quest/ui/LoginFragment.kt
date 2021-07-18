@@ -10,6 +10,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.uogames.i_have_quest.R
+import com.uogames.i_have_quest.data.entities.LoginData
 import com.uogames.i_have_quest.databinding.FragmentLoginBinding
 import com.uogames.i_have_quest.models.NetworkModel
 import com.uogames.i_have_quest.utils.checkLength
@@ -30,22 +31,7 @@ class LoginFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        initListeners()
         initButtons()
-    }
-
-    private fun initListeners() {
-        networkModel.loginData.observe(requireActivity()) {
-            if (it.status?.statusCode == 200) {
-               findNavController().navigate(R.id.mapsFragment)
-            } else {
-                MaterialAlertDialogBuilder(this.requireContext())
-                    .setTitle("LogIn error")
-                    .setMessage(it.status?.message)
-                    .setPositiveButton("Ok") { _, _ -> }
-                    .show()
-            }
-        }
     }
 
     private fun initButtons() {
@@ -64,7 +50,21 @@ class LoginFragment : Fragment() {
                     pattern = getString(R.string.exception_longer)
                 )
             ) {
-                networkModel.logIn(login, password)
+                networkModel.logIn(login, password) { initListeners(it) }
+            }
+        }
+    }
+
+    private fun initListeners(loginData: LoginData) {
+        loginData.let {
+            if (it.status?.statusCode == 200) {
+                findNavController().navigate(R.id.mapsFragment)
+            } else {
+                MaterialAlertDialogBuilder(this.requireContext())
+                    .setTitle("LogIn error")
+                    .setMessage(it.status?.message)
+                    .setPositiveButton("Ok") { _, _ -> }
+                    .show()
             }
         }
     }

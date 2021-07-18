@@ -169,6 +169,7 @@
                         android:layout_height="wrap_content" />
 
                     <TextView
+                        android:id="@+id/tv_defence"
                         android:layout_marginStart="7dp"
                         app:layout_constraintStart_toEndOf="@id/tv_defense_text"
                         app:layout_constraintTop_toTopOf="@id/tv_defense_text"
@@ -195,6 +196,7 @@
                         android:layout_height="wrap_content" />
 
                     <TextView
+                        android:id="@+id/tv_agility"
                         android:layout_marginStart="7dp"
                         app:layout_constraintStart_toEndOf="@id/tv_agility_text"
                         app:layout_constraintTop_toTopOf="@id/tv_agility_text"
@@ -221,6 +223,7 @@
                         android:layout_height="wrap_content" />
 
                     <TextView
+                        android:id="@+id/tv_health"
                         android:layout_marginStart="7dp"
                         app:layout_constraintStart_toEndOf="@id/tv_health_text"
                         app:layout_constraintTop_toTopOf="@id/tv_health_text"

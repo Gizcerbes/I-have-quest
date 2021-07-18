@@ -31,16 +31,31 @@ class PersonFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        initObservers()
+        networkModel.updateMyPerson()
+        networkModel.updateCharacteristics()
+        initNavigationMenu()
+    }
+
+    fun initObservers(){
         networkModel.personData.observe(requireActivity()) {
             if (it == null) return@observe
             binding.tvExperience.text = it.experience.toString() + "/" + it.nextLvl.toString()
             binding.tvTitle.text = it.title
             binding.tvName.text = it.personName
             binding.tvLvl.text = it.lvl.toString()
-            Glide.with(this).load("http://192.169.0.101:8080/IHaveQuest/image?id=" + it.image).into(binding.ivPhoto)
+            Glide.with(this).load("http://192.169.0.101:8080/IHaveQuest/image?id=" + it.image)
+                .diskCacheStrategy(
+                    DiskCacheStrategy.NONE
+                ).skipMemoryCache(true).into(binding.ivPhoto)
         }
-        networkModel.updateMyPerson()
-        initNavigationMenu()
+        networkModel.characteristicsData.observe(requireActivity()){
+            if (it == null) return@observe
+            binding.tvForce.text = it.force.toString()
+            binding.tvDefence.text = it.defence.toString()
+            binding.tvAgility.text = it.agility.toString()
+            binding.tvHealth.text = it.health.toString()
+        }
     }
 
     private fun initNavigationMenu() {
@@ -61,6 +76,10 @@ class PersonFragment : Fragment() {
                 }
                 R.id.item_person -> {
                     false
+                }
+                R.id.item_chat -> {
+                    view?.findNavController()?.navigate(R.id.chatFragment)
+                    true
                 }
                 else -> false
             }

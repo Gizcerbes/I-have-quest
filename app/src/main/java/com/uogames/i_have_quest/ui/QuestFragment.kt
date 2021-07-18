@@ -49,6 +49,10 @@ class QuestFragment : Fragment() {
                     view?.findNavController()?.navigate(R.id.personFragment)
                     true
                 }
+                R.id.item_chat -> {
+                    view?.findNavController()?.navigate(R.id.chatFragment)
+                    true
+                }
                 else -> false
             }
         }

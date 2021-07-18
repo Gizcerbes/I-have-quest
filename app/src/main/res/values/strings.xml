@@ -30,5 +30,10 @@
     <string name="health">health:</string>
     <string name="equipment">Equipment</string>
     <string name="professions">Professions</string>
-    <string name="exception_longer">Must be longer than {max} and less than {min}</string>
+    <string name="exception_longer">Must be longer than {min} and less than {max}</string>
+    <string name="chat">chat</string>
+    <string name="global">global</string>
+    <string name="personal">personal</string>
+    <string name="forum">forum</string>
+    <string name="search">Search</string>
 </resources>

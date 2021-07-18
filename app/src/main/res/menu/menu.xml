@@ -5,15 +5,23 @@
     <item
         android:id="@+id/item_map"
         android:enabled="true"
-        android:icon="@drawable/map"
+        android:icon="@drawable/ic_baseline_place_24"
         android:title="@string/map"
+        app:showAsAction="ifRoom"
+        />
+
+    <item
+        android:id="@+id/item_chat"
+        android:enabled="true"
+        android:icon="@drawable/ic_baseline_chat_bubble_24"
+        android:title="@string/chat"
         app:showAsAction="ifRoom"
         />
 
     <item
         android:id="@+id/item_quest"
         android:enabled="true"
-        android:icon="@drawable/quest"
+        android:icon="@drawable/ic_baseline_collections_bookmark_24"
         android:title="@string/quest"
         app:showAsAction="ifRoom"
         />
@@ -21,7 +29,7 @@
     <item
         android:id="@+id/item_basket"
         android:enabled="true"
-        android:icon="@drawable/backpack"
+        android:icon="@drawable/ic_baseline_backpack_24"
         android:title="@string/backpack"
         app:showAsAction="ifRoom"
         />
@@ -30,7 +38,7 @@
     <item
         android:id="@+id/item_person"
         android:enabled="true"
-        android:icon="@drawable/person"
+        android:icon="@drawable/ic_baseline_person_24"
         android:title="@string/person"
         app:showAsAction="ifRoom"
         />
