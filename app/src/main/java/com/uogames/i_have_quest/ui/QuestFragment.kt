@@ -27,36 +27,36 @@ class QuestFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        initNavigationMenu()
+        //initNavigationMenu()
     }
 
-    private fun initNavigationMenu() {
-        navigationMenu?.selectedItemId = R.id.item_quest
-        navigationMenu?.setOnNavigationItemSelectedListener {
-            when (it.itemId) {
-                R.id.item_map -> {
-                    view?.findNavController()?.navigate(R.id.mapsFragment)
-                    true
-                }
-                R.id.item_quest -> {
-                    false
-                }
-                R.id.item_basket -> {
-                    view?.findNavController()?.navigate(R.id.backpackFragment)
-                    true
-                }
-                R.id.item_person -> {
-                    view?.findNavController()?.navigate(R.id.personFragment)
-                    true
-                }
-                R.id.item_chat -> {
-                    view?.findNavController()?.navigate(R.id.chatFragment)
-                    true
-                }
-                else -> false
-            }
-        }
-
-    }
+//    private fun initNavigationMenu() {
+//        navigationMenu?.selectedItemId = R.id.navigation_quest
+//        navigationMenu?.setOnNavigationItemSelectedListener {
+//            when (it.itemId) {
+//                R.id.item_map -> {
+//                    view?.findNavController()?.navigate(R.id.navigation_map)
+//                    true
+//                }
+//                R.id.navigation_quest -> {
+//                    false
+//                }
+//                R.id.navigation_backpack -> {
+//                    view?.findNavController()?.navigate(R.id.backpackFragment)
+//                    true
+//                }
+//                R.id.navigation_person -> {
+//                    view?.findNavController()?.navigate(R.id.personFragment)
+//                    true
+//                }
+//                R.id.navigation_chat -> {
+//                    view?.findNavController()?.navigate(R.id.chatFragment)
+//                    true
+//                }
+//                else -> false
+//            }
+//        }
+//
+//    }
 
 }

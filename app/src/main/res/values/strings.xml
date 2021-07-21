@@ -36,4 +36,6 @@
     <string name="personal">personal</string>
     <string name="forum">forum</string>
     <string name="search">Search</string>
+    <string name="your_message">Your message</string>
+    <string name="link_image_server">http://93.125.42.151:8080/IHaveQuest/image?id=</string>
 </resources>

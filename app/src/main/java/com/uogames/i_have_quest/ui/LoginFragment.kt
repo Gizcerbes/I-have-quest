@@ -10,7 +10,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.uogames.i_have_quest.R
-import com.uogames.i_have_quest.data.entities.LoginData
+import com.uogames.data.entities.responseData.LoginData
 import com.uogames.i_have_quest.databinding.FragmentLoginBinding
 import com.uogames.i_have_quest.models.NetworkModel
 import com.uogames.i_have_quest.utils.checkLength
@@ -53,12 +53,15 @@ class LoginFragment : Fragment() {
                 networkModel.logIn(login, password) { initListeners(it) }
             }
         }
+        networkModel.loginData.observe(requireActivity()){
+            if (it.user != null) findNavController().navigate(R.id.navigation_map)
+        }
     }
 
     private fun initListeners(loginData: LoginData) {
         loginData.let {
             if (it.status?.statusCode == 200) {
-                findNavController().navigate(R.id.mapsFragment)
+                //findNavController().navigate(R.id.navigation_map)
             } else {
                 MaterialAlertDialogBuilder(this.requireContext())
                     .setTitle("LogIn error")

@@ -14,7 +14,7 @@
         <ScrollView
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            app:layout_constraintBottom_toTopOf="@+id/bottom_navi"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintTop_toTopOf="parent">
 
             <LinearLayout
@@ -23,40 +23,40 @@
                 android:orientation="vertical">
 
                 <androidx.constraintlayout.widget.ConstraintLayout
-                    android:layout_marginTop="16dp"
-                    android:layout_marginStart="16dp"
-                    android:layout_marginEnd="16dp"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginEnd="16dp">
 
                     <TextView
                         android:id="@+id/text_title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
                         android:layout_marginStart="7dp"
-                        app:layout_constraintStart_toEndOf="@id/iv_photo"
-                        app:layout_constraintTop_toTopOf="parent"
                         android:text="@string/title"
                         android:textSize="20sp"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content" />
+                        app:layout_constraintStart_toEndOf="@id/iv_photo"
+                        app:layout_constraintTop_toTopOf="parent" />
 
                     <TextView
-                        android:layout_marginStart="7dp"
                         android:id="@+id/tv_title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="7dp"
+                        android:textSize="20sp"
                         app:layout_constraintStart_toEndOf="@id/text_title"
                         app:layout_constraintTop_toTopOf="parent"
-                        tools:text="Веселый роджер"
-                        android:textSize="20sp"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content" />
+                        tools:text="Веселый роджер" />
 
                     <ImageView
                         android:layout_width="110dp"
                         android:layout_height="110dp"
                         android:background="@color/gray"
-                        app:layout_constraintStart_toStartOf="@id/iv_photo"
-                        app:layout_constraintTop_toTopOf="@id/iv_photo"
+                        app:layout_constraintBottom_toBottomOf="@id/iv_photo"
                         app:layout_constraintEnd_toEndOf="@id/iv_photo"
-                        app:layout_constraintBottom_toBottomOf="@id/iv_photo" />
+                        app:layout_constraintStart_toStartOf="@id/iv_photo"
+                        app:layout_constraintTop_toTopOf="@id/iv_photo" />
 
                     <ImageView
                         android:id="@+id/iv_photo"
@@ -68,203 +68,203 @@
 
                     <TextView
                         android:id="@+id/tv_name_text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
                         android:layout_marginStart="7dp"
-                        app:layout_constraintStart_toEndOf="@id/iv_photo"
-                        app:layout_constraintTop_toBottomOf="@id/tv_title"
                         android:text="@string/name"
                         android:textSize="20sp"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content" />
+                        app:layout_constraintStart_toEndOf="@id/iv_photo"
+                        app:layout_constraintTop_toBottomOf="@id/tv_title" />
 
                     <TextView
                         android:id="@+id/tv_name"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
                         android:layout_marginStart="7dp"
+                        android:textSize="20sp"
                         app:layout_constraintStart_toEndOf="@id/tv_name_text"
                         app:layout_constraintTop_toBottomOf="@id/tv_title"
-                        tools:text="Gohan"
-                        android:textSize="20sp"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content" />
+                        tools:text="Gohan" />
 
                     <TextView
                         android:id="@+id/tv_lvl_text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
                         android:layout_marginStart="7dp"
-                        app:layout_constraintStart_toEndOf="@id/iv_photo"
-                        app:layout_constraintTop_toBottomOf="@id/tv_name_text"
                         android:text="@string/lvl"
                         android:textSize="20sp"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content" />
+                        app:layout_constraintStart_toEndOf="@id/iv_photo"
+                        app:layout_constraintTop_toBottomOf="@id/tv_name_text" />
 
                     <TextView
                         android:id="@+id/tv_lvl"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
                         android:layout_marginStart="7dp"
+                        android:textSize="20sp"
                         app:layout_constraintStart_toEndOf="@id/tv_lvl_text"
                         app:layout_constraintTop_toBottomOf="@id/tv_name_text"
-                        tools:text="1"
-                        android:textSize="20sp"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content" />
+                        tools:text="1" />
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
-                    android:layout_margin="16dp"
-                    android:layout_height="wrap_content">
+                    android:layout_height="wrap_content"
+                    android:layout_margin="16dp">
 
                     <TextView
                         android:id="@+id/tv_characteristics"
-                        app:layout_constraintTop_toTopOf="parent"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:background="@color/dimgray"
                         android:gravity="center"
-                        android:textSize="20sp"
                         android:text="@string/characteristics"
-                        android:background="@color/dimgray" />
+                        android:textSize="20sp"
+                        app:layout_constraintTop_toTopOf="parent" />
 
                     <ImageView
                         android:id="@+id/iv_force"
-                        android:layout_marginTop="7dp"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@id/tv_characteristics"
                         android:layout_width="20dp"
                         android:layout_height="20dp"
-                        android:src="@drawable/fist" />
+                        android:layout_marginTop="7dp"
+                        android:src="@drawable/ic_fist"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/tv_characteristics" />
 
                     <TextView
                         android:id="@+id/tv_force_text"
-                        android:layout_marginStart="7dp"
-                        app:layout_constraintStart_toEndOf="@id/iv_force"
-                        app:layout_constraintTop_toTopOf="@id/iv_force"
-                        android:text="@string/force"
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content" />
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="7dp"
+                        android:text="@string/force"
+                        app:layout_constraintStart_toEndOf="@id/iv_force"
+                        app:layout_constraintTop_toTopOf="@id/iv_force" />
 
                     <TextView
                         android:id="@+id/tv_force"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
                         android:layout_marginStart="7dp"
                         app:layout_constraintStart_toEndOf="@id/tv_force_text"
                         app:layout_constraintTop_toTopOf="@id/tv_force_text"
-                        tools:text="10"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content" />
+                        tools:text="10" />
 
                     <ImageView
                         android:id="@+id/iv_defense"
-                        android:layout_marginTop="7dp"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@id/iv_force"
                         android:layout_width="20dp"
                         android:layout_height="20dp"
-                        android:src="@drawable/shield" />
+                        android:layout_marginTop="7dp"
+                        android:src="@drawable/ic_shield"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/iv_force" />
 
                     <TextView
                         android:id="@+id/tv_defense_text"
-                        android:layout_marginStart="7dp"
-                        app:layout_constraintStart_toEndOf="@id/iv_defense"
-                        app:layout_constraintTop_toTopOf="@id/iv_defense"
-                        android:text="@string/defense"
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content" />
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="7dp"
+                        android:text="@string/defense"
+                        app:layout_constraintStart_toEndOf="@id/iv_defense"
+                        app:layout_constraintTop_toTopOf="@id/iv_defense" />
 
                     <TextView
                         android:id="@+id/tv_defence"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
                         android:layout_marginStart="7dp"
                         app:layout_constraintStart_toEndOf="@id/tv_defense_text"
                         app:layout_constraintTop_toTopOf="@id/tv_defense_text"
-                        tools:text="10"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content" />
+                        tools:text="10" />
 
                     <ImageView
                         android:id="@+id/iv_agility"
-                        android:layout_marginTop="7dp"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@id/iv_defense"
                         android:layout_width="20dp"
                         android:layout_height="20dp"
-                        android:src="@drawable/agility" />
+                        android:layout_marginTop="7dp"
+                        android:src="@drawable/ic_shoes"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/iv_defense" />
 
                     <TextView
                         android:id="@+id/tv_agility_text"
-                        android:layout_marginStart="7dp"
-                        app:layout_constraintStart_toEndOf="@id/iv_agility"
-                        app:layout_constraintTop_toTopOf="@id/iv_agility"
-                        android:text="@string/agility"
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content" />
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="7dp"
+                        android:text="@string/agility"
+                        app:layout_constraintStart_toEndOf="@id/iv_agility"
+                        app:layout_constraintTop_toTopOf="@id/iv_agility" />
 
                     <TextView
                         android:id="@+id/tv_agility"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
                         android:layout_marginStart="7dp"
                         app:layout_constraintStart_toEndOf="@id/tv_agility_text"
                         app:layout_constraintTop_toTopOf="@id/tv_agility_text"
-                        tools:text="10"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content" />
+                        tools:text="10" />
 
                     <ImageView
                         android:id="@+id/iv_health"
-                        android:layout_marginTop="7dp"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@id/iv_agility"
                         android:layout_width="20dp"
                         android:layout_height="20dp"
-                        android:src="@drawable/ic_baseline_favorite_24" />
+                        android:layout_marginTop="7dp"
+                        android:src="@drawable/ic_baseline_favorite_24"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/iv_agility" />
 
                     <TextView
                         android:id="@+id/tv_health_text"
-                        android:layout_marginStart="7dp"
-                        app:layout_constraintStart_toEndOf="@id/iv_health"
-                        app:layout_constraintTop_toTopOf="@id/iv_health"
-                        android:text="@string/health"
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content" />
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="7dp"
+                        android:text="@string/health"
+                        app:layout_constraintStart_toEndOf="@id/iv_health"
+                        app:layout_constraintTop_toTopOf="@id/iv_health" />
 
                     <TextView
                         android:id="@+id/tv_health"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
                         android:layout_marginStart="7dp"
                         app:layout_constraintStart_toEndOf="@id/tv_health_text"
                         app:layout_constraintTop_toTopOf="@id/tv_health_text"
-                        tools:text="10 (100 hp)"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content" />
+                        tools:text="10 (100 hp)" />
 
                     <ImageView
                         android:id="@+id/iv_experience"
-                        android:layout_marginTop="7dp"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@id/iv_health"
                         android:layout_width="20dp"
                         android:layout_height="20dp"
-                        android:src="@drawable/experiance" />
+                        android:layout_marginTop="7dp"
+                        android:src="@drawable/ic_goal"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/iv_health" />
 
                     <TextView
                         android:id="@+id/tv_experience_text"
-                        android:layout_marginStart="7dp"
-                        app:layout_constraintStart_toEndOf="@id/iv_experience"
-                        app:layout_constraintTop_toTopOf="@id/iv_experience"
-                        android:text="@string/experience"
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content" />
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="7dp"
+                        android:text="@string/experience"
+                        app:layout_constraintStart_toEndOf="@id/iv_experience"
+                        app:layout_constraintTop_toTopOf="@id/iv_experience" />
 
                     <TextView
                         android:id="@+id/tv_experience"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
                         android:layout_marginStart="7dp"
                         app:layout_constraintStart_toEndOf="@id/tv_experience_text"
                         app:layout_constraintTop_toTopOf="@id/tv_experience_text"
-                        tools:text="1/100"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content" />
+                        tools:text="1/100" />
 
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
-                    android:layout_margin="16dp"
-                    android:layout_height="wrap_content">
+                    android:layout_height="wrap_content"
+                    android:layout_margin="16dp">
 
                     <Button
                         android:id="@+id/btn_equipment"
@@ -283,8 +283,8 @@
                         android:layout_height="wrap_content"
                         android:text="@string/professions"
                         app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintTop_toTopOf="parent"
-                        app:layout_constraintStart_toEndOf="@id/btn_equipment" />
+                        app:layout_constraintStart_toEndOf="@id/btn_equipment"
+                        app:layout_constraintTop_toTopOf="parent" />
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -292,13 +292,6 @@
 
         </ScrollView>
 
-
-        <com.google.android.material.bottomnavigation.BottomNavigationView
-            android:id="@+id/bottom_navi"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:menu="@menu/menu" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

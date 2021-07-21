@@ -48,7 +48,6 @@ class MapsFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         mapFragment?.getMapAsync { onMapReady(it) }
-        initNavigationMenu()
         permissionModel.locationPermission.observe(requireActivity()) { updateLocationUI(it) }
         locationModel.myLatLng.observe(this.requireActivity()) {
             googleMap?.moveCamera(CameraUpdateFactory.newLatLngZoom(it, 15f))
@@ -84,35 +83,6 @@ class MapsFragment : Fragment() {
             }
         } catch (e: SecurityException) {
             Log.e("Exception: %s", e.message, e)
-        }
-    }
-
-    private fun initNavigationMenu() {
-        binding.bottomNavi.selectedItemId = R.id.item_map
-        binding.bottomNavi.setOnNavigationItemSelectedListener {
-            when (it.itemId) {
-                R.id.item_map -> {
-                    false
-                }
-                R.id.item_quest -> {
-                    view?.findNavController()?.navigate(R.id.questFragment)
-                    true
-                }
-                R.id.item_basket -> {
-                    view?.findNavController()
-                        ?.navigate(R.id.backpackFragment)
-                    true
-                }
-                R.id.item_person -> {
-                    view?.findNavController()?.navigate(R.id.personFragment)
-                    true
-                }
-                R.id.item_chat -> {
-                    view?.findNavController()?.navigate(R.id.chatFragment)
-                    true
-                }
-                else -> false
-            }
         }
     }
 

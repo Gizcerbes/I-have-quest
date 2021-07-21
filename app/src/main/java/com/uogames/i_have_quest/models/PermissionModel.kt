@@ -8,11 +8,14 @@ import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.MutableLiveData
+import androidx.navigation.ui.AppBarConfiguration
 import com.uogames.i_have_quest.ui.MainActivity
 
 class PermissionModel(application: Application) : AndroidViewModel(application) {
     private val _locationPermission = MutableLiveData<Boolean>()
     val locationPermission = _locationPermission
+
+    val appBarConfiguration = MutableLiveData<AppBarConfiguration>()
 
     fun setLocationPermission(permission: Boolean) {
         _locationPermission.postValue(permission)

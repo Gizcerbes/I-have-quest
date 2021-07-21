@@ -1,13 +1,13 @@
 package com.uogames.i_have_quest.models
 
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.uogames.i_have_quest.data.entities.CharacteristicsObjectData
-import com.uogames.i_have_quest.data.entities.LoginData
-import com.uogames.i_have_quest.data.entities.PersonObjectData
-import com.uogames.i_have_quest.data.entities.RegistrationData
-import com.uogames.i_have_quest.repository.game.GameRepository
+import com.uogames.data.entities.objectData.CharacteristicsObjectData
+import com.uogames.data.entities.objectData.PersonObjectData
+import com.uogames.data.entities.responseData.*
+import com.uogames.repository.game.GameRepository
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -26,6 +26,12 @@ class NetworkModel : ViewModel() {
 
     private val _characteristicsData = MutableLiveData<CharacteristicsObjectData>()
     val characteristicsData: LiveData<CharacteristicsObjectData> = _characteristicsData
+
+    private val _countPersonalChats = MutableLiveData<Number>(0)
+    val countPersonalChats: LiveData<Number> = _countPersonalChats
+
+    private val _countForumChats = MutableLiveData<Number>(0)
+    val countForumChats: LiveData<Number> = _countForumChats
 
 
     fun logIn(login: String, password: String, block: (LoginData) -> Unit) {
@@ -72,6 +78,19 @@ class NetworkModel : ViewModel() {
         }
     }
 
+    fun getPersonById(id: Int?, block: (PersonData) -> Unit) {
+        ioScope.launch {
+            try {
+                val myKey = loginData.value?.user?.userKey
+                val data = gameRepository.getPersonByID(myKey.toString(), id.toString())
+                data?.let { mainScope.launch { block(it) } }
+            } catch (e: Throwable) {
+
+            }
+        }
+    }
+
+
     fun updateCharacteristics() {
         ioScope.launch {
             try {
@@ -82,6 +101,95 @@ class NetworkModel : ViewModel() {
                     )
                     result?.let { res -> _characteristicsData.postValue(res.characteristics) }
                 }
+            } catch (e: Throwable) {
+
+            }
+        }
+    }
+
+    fun getChatInfoByName(chatName: String, callback: (ChatInfoData) -> Unit) {
+        ioScope.launch {
+            try {
+                val myKey = loginData.value?.user?.userKey
+                val data = gameRepository.getChatInfoByName(myKey.toString(), chatName)
+                mainScope.launch { data?.let { callback(it) } }
+            } catch (e: Throwable) {
+
+            }
+        }
+    }
+
+    fun getChatInfoByNumber(number: Int, callback: (ChatInfoData) -> Unit) {
+        ioScope.launch {
+            try {
+                val myKey = loginData.value?.user?.userKey
+                val data = gameRepository.getChatInfoByNumber(myKey.toString(), number.toString())
+                Log.e("TAG", data.toString())
+                mainScope.launch { data?.let { callback(it) } }
+            } catch (e: Throwable) {
+
+            }
+        }
+    }
+
+    fun updateCountPersonalChats() {
+        ioScope.launch {
+            try {
+                val myKey = loginData.value?.user?.userKey
+                _countPersonalChats.postValue(myKey?.let { gameRepository.getChatsCount(it) }?.chatsCount)
+            } catch (e: Throwable) {
+
+            }
+        }
+    }
+
+    fun updateCountForumChats() {
+        _countForumChats.postValue(0)
+    }
+
+    fun sendMessageByChatName(chatName: String, message: String, block: (YourMessageData) -> Unit) {
+        ioScope.launch {
+            try {
+                val myKey = loginData.value?.user?.userKey
+                val result =
+                    gameRepository.sendMessageByChatName(myKey.toString(), chatName, message)
+                mainScope.launch { result?.let { block(it) } }
+            } catch (e: Throwable) {
+
+            }
+        }
+    }
+
+    fun sendMessageByPerson(
+        receiver: PersonData,
+        message: String,
+        block: (YourMessageData) -> Unit
+    ) {
+        ioScope.launch {
+            try {
+                val myKey = loginData.value?.user?.userKey
+                val result = gameRepository.sendMessageByChatName(
+                    myKey.toString(),
+                    receiver.person?.id.toString(),
+                    message
+                )
+                mainScope.launch { result?.let { block(it) } }
+            } catch (e: Throwable) {
+
+            }
+        }
+    }
+
+    fun getMessage(chatName: String, number: Int, block: (YourMessageData) -> Unit) {
+        ioScope.launch {
+            try {
+                val myKey = loginData.value?.user?.userKey
+                val result = gameRepository.getMessageByChatNameAndNumber(
+                    myKey.toString(),
+                    chatName,
+                    number.toString()
+                )
+                mainScope.launch { result?.let { block(it) } }
             } catch (e: Throwable) {
 
             }

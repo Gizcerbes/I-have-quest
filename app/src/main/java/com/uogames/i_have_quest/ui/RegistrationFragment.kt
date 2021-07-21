@@ -10,7 +10,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.uogames.i_have_quest.R
-import com.uogames.i_have_quest.data.entities.RegistrationData
+import com.uogames.data.entities.responseData.RegistrationData
 import com.uogames.i_have_quest.databinding.FragmentRegistrationBinding
 import com.uogames.i_have_quest.models.NetworkModel
 import com.uogames.i_have_quest.utils.checkLength
@@ -71,7 +71,7 @@ class RegistrationFragment : Fragment() {
             if (it.status?.statusCode == 201) {
                 MaterialAlertDialogBuilder(this.requireContext())
                     .setTitle("Registration Ok")
-                    .setMessage(it.status.message)
+                    .setMessage(it.status?.message)
                     .setPositiveButton("Ok") { _, _ ->
                         findNavController().navigateUp()
                     }

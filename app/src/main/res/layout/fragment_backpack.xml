@@ -92,7 +92,7 @@
             android:layout_height="wrap_content"
             android:progress="50"
             android:paddingBottom="16dp"
-            app:layout_constraintBottom_toTopOf="@+id/bottom_navi" />
+            app:layout_constraintBottom_toBottomOf="parent"/>
 
         <TextView
             app:layout_constraintBottom_toBottomOf="@id/progress_bar"
@@ -102,12 +102,6 @@
             android:layout_height="wrap_content" />
 
 
-        <com.google.android.material.bottomnavigation.BottomNavigationView
-            android:id="@+id/bottom_navi"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:menu="@menu/menu" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

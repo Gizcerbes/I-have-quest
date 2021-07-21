@@ -1,2 +1,3 @@
 rootProject.name = "I-has-quest"
 include ':app'
+include ':network'

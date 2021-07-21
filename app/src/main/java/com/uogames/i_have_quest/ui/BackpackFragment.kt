@@ -19,45 +19,45 @@ class BackpackFragment : Fragment() {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_backpack, container, false)
         return binding.root //inflater.inflate(R.layout.fragment_backpack, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        initNavigationMenu()
+        //initNavigationMenu()
     }
 
-    private fun initNavigationMenu() {
-        binding.bottomNavi.selectedItemId = R.id.item_basket
-        binding.bottomNavi.setOnNavigationItemSelectedListener {
-            when (it.itemId) {
-                R.id.item_map -> {
-                    view?.findNavController()
-                        ?.navigate(R.id.mapsFragment)
-                    true
-                }
-                R.id.item_quest -> {
-                    view?.findNavController()
-                        ?.navigate(R.id.questFragment)
-                    true
-                }
-                R.id.item_basket -> {
-                    false
-                }
-                R.id.item_person -> {
-                    view?.findNavController()
-                        ?.navigate(R.id.personFragment)
-                    true
-                }
-                R.id.item_chat -> {
-                    view?.findNavController()?.navigate(R.id.chatFragment)
-                    true
-                }
-                else -> false
-            }
-        }
-    }
+//    private fun initNavigationMenu() {
+//        binding.bottomNavi.selectedItemId = R.id.navigation_backpack
+//        binding.bottomNavi.setOnNavigationItemSelectedListener {
+//            when (it.itemId) {
+//                R.id.item_map -> {
+//                    view?.findNavController()
+//                        ?.navigate(R.id.navigation_map)
+//                    true
+//                }
+//                R.id.navigation_quest -> {
+//                    view?.findNavController()
+//                        ?.navigate(R.id.questFragment)
+//                    true
+//                }
+//                R.id.navigation_backpack -> {
+//                    false
+//                }
+//                R.id.navigation_person -> {
+//                    view?.findNavController()
+//                        ?.navigate(R.id.personFragment)
+//                    true
+//                }
+//                R.id.navigation_chat -> {
+//                    view?.findNavController()?.navigate(R.id.chatFragment)
+//                    true
+//                }
+//                else -> false
+//            }
+//        }
+//    }
 
 }
