@@ -55,7 +55,7 @@ class MapsFragment : Fragment() {
         permissionModel.getLocationPermission(requireActivity())
     }
 
-    fun onMapReady(googleMap: GoogleMap) {
+    private fun onMapReady(googleMap: GoogleMap) {
         this.googleMap = googleMap
         googleMap.uiSettings.isZoomControlsEnabled = false
         googleMap.uiSettings.isScrollGesturesEnabled = false

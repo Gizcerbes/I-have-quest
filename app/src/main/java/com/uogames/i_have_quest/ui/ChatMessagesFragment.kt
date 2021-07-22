@@ -21,6 +21,13 @@ class ChatMessagesFragment : Fragment() {
 
     private lateinit var binding: FragmentChatMessagesBinding
     private val networkModel by lazy { ViewModelProvider(requireActivity()).get(NetworkModel::class.java) }
+
+    companion object {
+        const val CHAT_NAME_KEY = "CHAT_NAME_KEY"
+        const val ID_RECEIVER_KEY = "ID_RECEIVER_KEY"
+    }
+
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -33,17 +40,39 @@ class ChatMessagesFragment : Fragment() {
 
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        val chatName = arguments?.getString(ChatSelectAdapter.CHAT_NAME_KEY)
+        val chatName = arguments?.getString(CHAT_NAME_KEY)
+        val idReceiver = arguments?.getInt(ID_RECEIVER_KEY)
+        val myID = networkModel.loginData.value?.person?.id?.toInt() ?: 0
 
-        chatName?.let { name ->
-            updateChat(name)
+        if (!chatName.isNullOrEmpty()) {
+            updateChat(chatName)
             binding.ibSendMessage.setOnClickListener {
-                networkModel.sendMessageByChatName(name, binding.tiTextInput.text.toString()) {
-                    updateChat(name)
+                networkModel.sendMessageByChatName(chatName, binding.tiTextInput.text.toString()) {
+                    updateChat(chatName)
                     binding.tiTextInput.setText("")
                 }
             }
+        } else if (idReceiver != myID) {
+            idReceiver?.let {
+                networkModel.getChatInfoByReceiverID(it) {
+                    it.chatInfo?.nameChat?.let { it1 -> updateChat(it1) }
+                }
+            }
+            binding.ibSendMessage.setOnClickListener {
+                val message = binding.tiTextInput.text.toString().trim()
+                if (message.isNotEmpty()) {
+                    idReceiver?.let {
+                        networkModel.sendMessageByPerson(
+                            it,
+                            binding.tiTextInput.text.toString()
+                        ) { message ->
+                            message.yourMessage?.name?.let { it1 -> updateChat(it1) }
+                        }
+                    }
+                }
+            }
         }
+
         binding.tiTextInput.addTextChangedListener(getWatcher())
 
     }
@@ -56,6 +85,7 @@ class ChatMessagesFragment : Fragment() {
             binding.rvFragmentChat.scrollToPosition(countMessage.toInt() - 1)
         }
     }
+
 
     private fun getWatcher(): TextWatcher {
         return object : TextWatcher {

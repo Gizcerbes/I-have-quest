@@ -32,10 +32,10 @@ class ChatInfoFragment : Fragment() {
         binding.clSearch.visibility = View.VISIBLE
         binding.tlTabChatLayout.addOnTabSelectedListener(initMenu())
         networkModel.countPersonalChats.observe(requireActivity()){
-            binding.rvFragmentChat.adapter = ChatSelectAdapter(it.toInt(), ChatSelectAdapter.PERSONAL, networkModel)
+            binding.rvFragmentChat.adapter = ChatSelectAdapter(it.toInt(), ChatSelectAdapter.PERSONAL, networkModel, context)
         }
         networkModel.countForumChats.observe(requireActivity()){
-            binding.rvFragmentChat.adapter = ChatSelectAdapter(it.toInt(), ChatSelectAdapter.FORUM, networkModel)
+            binding.rvFragmentChat.adapter = ChatSelectAdapter(it.toInt(), ChatSelectAdapter.FORUM, networkModel, context)
         }
         networkModel.updateCountPersonalChats()
     }
@@ -57,7 +57,7 @@ class ChatInfoFragment : Fragment() {
                 when (tab.text) {
                     getString(R.string.global) -> {
                         binding.clSearch.visibility = View.GONE
-                        val adapter = ChatSelectAdapter(1, ChatSelectAdapter.GLOBAL, networkModel)
+                        val adapter = ChatSelectAdapter(1, ChatSelectAdapter.GLOBAL, networkModel, requireContext())
                         binding.rvFragmentChat.adapter = adapter
                     }
                     getText(R.string.personal) -> {

@@ -45,6 +45,10 @@ class GameRepository {
         return gameRunner.run(api.getChatInfoByNumber(userKey, numberChat), chaInfoMapper)
     }
 
+    suspend fun getChatInfoByReceiverID(userKey: String, receiverID: String): ChatInfoData? {
+        return gameRunner.run(api.getChatInfoByReceiverID(userKey, receiverID), chaInfoMapper)
+    }
+
     suspend fun getChatsCount(userKey: String): CountData? {
         return gameRunner.run(api.getChatsCount(userKey), countMapper)
     }

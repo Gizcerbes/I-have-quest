@@ -53,16 +53,14 @@ class LoginFragment : Fragment() {
                 networkModel.logIn(login, password) { initListeners(it) }
             }
         }
-        networkModel.loginData.observe(requireActivity()){
+        networkModel.loginData.observe(requireActivity()) {
             if (it.user != null) findNavController().navigate(R.id.navigation_map)
         }
     }
 
     private fun initListeners(loginData: LoginData) {
         loginData.let {
-            if (it.status?.statusCode == 200) {
-                //findNavController().navigate(R.id.navigation_map)
-            } else {
+            if (it.status?.statusCode != 200) {
                 MaterialAlertDialogBuilder(this.requireContext())
                     .setTitle("LogIn error")
                     .setMessage(it.status?.message)

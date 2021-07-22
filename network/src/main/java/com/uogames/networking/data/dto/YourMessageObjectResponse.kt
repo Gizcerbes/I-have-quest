@@ -10,5 +10,7 @@ data class YourMessageObjectResponse(
     @SerializedName("message")
     val message: String?,
     @SerializedName("time")
-    val time: Long?
+    val time: Long?,
+    @SerializedName("name")
+    val name:String?
 )

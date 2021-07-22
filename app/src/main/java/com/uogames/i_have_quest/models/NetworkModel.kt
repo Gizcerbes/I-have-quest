@@ -1,6 +1,5 @@
 package com.uogames.i_have_quest.models
 
-import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -107,6 +106,19 @@ class NetworkModel : ViewModel() {
         }
     }
 
+    fun getCharacteristicsById(idPerson: Int, block: (CharacteristicsObjectData) -> Unit) {
+        ioScope.launch {
+            try {
+                val myKey = loginData.value?.user?.userKey
+                val result =
+                    gameRepository.getCharacteristicById(myKey.toString(), idPerson.toString())
+                mainScope.launch { result?.characteristics?.let { block(it) } }
+            } catch (e: Throwable) {
+
+            }
+        }
+    }
+
     fun getChatInfoByName(chatName: String, callback: (ChatInfoData) -> Unit) {
         ioScope.launch {
             try {
@@ -124,7 +136,18 @@ class NetworkModel : ViewModel() {
             try {
                 val myKey = loginData.value?.user?.userKey
                 val data = gameRepository.getChatInfoByNumber(myKey.toString(), number.toString())
-                Log.e("TAG", data.toString())
+                mainScope.launch { data?.let { callback(it) } }
+            } catch (e: Throwable) {
+
+            }
+        }
+    }
+
+    fun getChatInfoByReceiverID(receiverID: Int, callback: (ChatInfoData) -> Unit) {
+        ioScope.launch {
+            try {
+                val myKey = loginData.value?.user?.userKey
+                val data = gameRepository.getChatInfoByReceiverID(myKey.toString(), receiverID.toString())
                 mainScope.launch { data?.let { callback(it) } }
             } catch (e: Throwable) {
 
@@ -161,16 +184,16 @@ class NetworkModel : ViewModel() {
     }
 
     fun sendMessageByPerson(
-        receiver: PersonData,
+        idReceiver: Int,
         message: String,
         block: (YourMessageData) -> Unit
     ) {
         ioScope.launch {
             try {
                 val myKey = loginData.value?.user?.userKey
-                val result = gameRepository.sendMessageByChatName(
+                val result = gameRepository.sendMessageByPerson(
                     myKey.toString(),
-                    receiver.person?.id.toString(),
+                    idReceiver.toString(),
                     message
                 )
                 mainScope.launch { result?.let { block(it) } }

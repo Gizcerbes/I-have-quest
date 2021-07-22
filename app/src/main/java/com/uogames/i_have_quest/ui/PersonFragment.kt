@@ -10,11 +10,19 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.findNavController
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.engine.DiskCacheStrategy
+import com.uogames.data.entities.objectData.CharacteristicsObjectData
+import com.uogames.data.entities.objectData.PersonObjectData
+import com.uogames.data.entities.responseData.PersonData
 import com.uogames.i_have_quest.R
 import com.uogames.i_have_quest.databinding.FragmentPersonBinding
 import com.uogames.i_have_quest.models.NetworkModel
 
 class PersonFragment : Fragment() {
+
+    companion object {
+        const val PERSON_NAME = "PERSON_NAME"
+        const val PERSON_ID = "PERSON_ID"
+    }
 
     private lateinit var binding: FragmentPersonBinding
     private val networkModel by lazy { ViewModelProvider(requireActivity()).get(NetworkModel::class.java) }
@@ -30,35 +38,60 @@ class PersonFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        initObservers()
-        networkModel.updateMyPerson()
-        networkModel.updateCharacteristics()
-        //initNavigationMenu()
-    }
-
-    fun initObservers() {
-        networkModel.personData.observe(requireActivity()) {
-            if (it == null) return@observe
-            binding.tvExperience.text = it.experience.toString() + "/" + it.nextLvl.toString()
-            binding.tvTitle.text = it.title
-            binding.tvName.text = it.personName
-            binding.tvLvl.text = it.lvl.toString()
-            try {
-                Glide.with(requireActivity())
-                    .load(getString(R.string.link_image_server) + it.image)
-                    .diskCacheStrategy(
-                        DiskCacheStrategy.NONE
-                    ).skipMemoryCache(true).into(binding.ivPhoto)
-            } catch (e: Throwable) {
-
+        val personID = arguments?.getInt(PERSON_ID) ?: 0
+        val myPersonID = networkModel.loginData.value?.person?.id
+        if (personID == 0 || personID == myPersonID?.toInt()) {
+            binding.btnSendMessage.visibility = View.GONE
+            initObservers()
+        } else {
+            networkModel.getPersonById(personID) {
+                it.person?.let { it1 -> setPersonInfo(it1) }
+            }
+            networkModel.getCharacteristicsById(personID) {
+                setCharacteristics(it)
             }
         }
+        networkModel.updateMyPerson()
+        networkModel.updateCharacteristics()
+
+    }
+
+    private fun setPersonInfo(personData: PersonObjectData) {
+        binding.tvExperience.text =
+            personData.experience.toString() + "/" + personData.nextLvl.toString()
+        binding.tvTitle.text = personData.title
+        binding.tvName.text = personData.personName
+        binding.tvLvl.text = personData.lvl.toString()
+        try {
+            Glide.with(requireActivity())
+                .load(getString(R.string.link_image_server) + personData.image)
+                .diskCacheStrategy(
+                    DiskCacheStrategy.NONE
+                ).skipMemoryCache(true).into(binding.ivPhoto)
+        } catch (e: Throwable) {
+
+        }
+        binding.btnSendMessage.setOnClickListener {
+            val personID = personData.id.toInt()
+            view?.findNavController()?.navigate(
+                R.id.chatMessagesFragment,
+                Bundle().apply { putInt(ChatMessagesFragment.ID_RECEIVER_KEY, personID)})
+        }
+    }
+
+    private fun setCharacteristics(characteristicsObjectData: CharacteristicsObjectData) {
+        binding.tvForce.text = characteristicsObjectData.force.toString()
+        binding.tvDefence.text = characteristicsObjectData.defence.toString()
+        binding.tvAgility.text = characteristicsObjectData.agility.toString()
+        binding.tvHealth.text = characteristicsObjectData.health.toString()
+    }
+
+    private fun initObservers() {
+        networkModel.personData.observe(requireActivity()) {
+            setPersonInfo(it)
+        }
         networkModel.characteristicsData.observe(requireActivity()) {
-            if (it == null) return@observe
-            binding.tvForce.text = it.force.toString()
-            binding.tvDefence.text = it.defence.toString()
-            binding.tvAgility.text = it.agility.toString()
-            binding.tvHealth.text = it.health.toString()
+            setCharacteristics(it)
         }
     }
 

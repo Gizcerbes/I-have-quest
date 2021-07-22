@@ -7,9 +7,9 @@ import com.uogames.i_have_quest.networking.data.dto.UserObjectResponse
 class UserObjectMapper: Mapper<UserObjectResponse, UserObjectData> {
     override fun map(from: UserObjectResponse): UserObjectData {
         return UserObjectData(
-            id = from.id,
-            name = from.name,
-            userKey = from.userKey
+            id = from.id ?: 0,
+            name = from.name.orEmpty(),
+            userKey = from.userKey.orEmpty()
         )
     }
 

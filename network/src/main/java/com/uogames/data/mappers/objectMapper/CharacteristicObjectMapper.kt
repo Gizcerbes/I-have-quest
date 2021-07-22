@@ -8,11 +8,11 @@ class CharacteristicObjectMapper :
     Mapper<CharacteristicsObjectResponse, CharacteristicsObjectData> {
     override fun map(from: CharacteristicsObjectResponse): CharacteristicsObjectData {
         return CharacteristicsObjectData(
-            agility = from.agility,
-            defence = from.defence,
-            force = from.force,
-            health = from.health,
-            id = from.id
+            agility = from.agility ?: 0,
+            defence = from.defence ?: 0,
+            force = from.force ?: 0,
+            health = from.health ?: 0,
+            id = from.id ?:0
         )
     }
 

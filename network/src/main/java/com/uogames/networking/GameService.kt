@@ -67,6 +67,14 @@ interface GameService {
         numberChat: String
     ): Response<ChatInfoResponse>
 
+    @GET("chatInfo")
+    suspend fun getChatInfoByReceiverID(
+        @Query("userKey")
+        userKey: String,
+        @Query("receiverID")
+        receiverID: String
+    ): Response<ChatInfoResponse>
+
     @GET("chatcount")
     suspend fun getChatsCount(
         @Query("userKey")

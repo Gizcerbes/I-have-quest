@@ -15,8 +15,6 @@ class PermissionModel(application: Application) : AndroidViewModel(application) 
     private val _locationPermission = MutableLiveData<Boolean>()
     val locationPermission = _locationPermission
 
-    val appBarConfiguration = MutableLiveData<AppBarConfiguration>()
-
     fun setLocationPermission(permission: Boolean) {
         _locationPermission.postValue(permission)
     }
