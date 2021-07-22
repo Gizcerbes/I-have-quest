@@ -96,7 +96,7 @@ class ChatMessagesFragment : Fragment() {
             }
 
             override fun afterTextChanged(s: Editable?) {
-                val len = s?.length ?: 0
+                val len = s?.trim()?.length ?: 0
                 if (len == 0) binding.ibSendMessage.visibility = View.INVISIBLE
                 else binding.ibSendMessage.visibility = View.VISIBLE
             }
