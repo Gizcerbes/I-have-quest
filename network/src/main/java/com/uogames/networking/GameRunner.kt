@@ -1,5 +1,6 @@
 package com.uogames.networking
 
+import android.util.Log
 import com.uogames.data.mappers.Mapper
 import retrofit2.Response
 

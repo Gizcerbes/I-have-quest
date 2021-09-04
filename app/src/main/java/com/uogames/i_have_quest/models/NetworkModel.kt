@@ -38,7 +38,7 @@ class NetworkModel : ViewModel() {
             try {
                 gameRepository.logIn(login, password)?.let {
                     _loginData.postValue(it)
-                    _personData.postValue(it.person)
+                    it.person?.let { person -> _personData.postValue(person) }
                     mainScope.launch { block(it) }
                 }
             } catch (e: Throwable) {
@@ -147,7 +147,8 @@ class NetworkModel : ViewModel() {
         ioScope.launch {
             try {
                 val myKey = loginData.value?.user?.userKey
-                val data = gameRepository.getChatInfoByReceiverID(myKey.toString(), receiverID.toString())
+                val data =
+                    gameRepository.getChatInfoByReceiverID(myKey.toString(), receiverID.toString())
                 mainScope.launch { data?.let { callback(it) } }
             } catch (e: Throwable) {
 

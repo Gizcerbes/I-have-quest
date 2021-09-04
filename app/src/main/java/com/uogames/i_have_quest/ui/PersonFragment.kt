@@ -1,6 +1,7 @@
 package com.uogames.i_have_quest.ui
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -8,14 +9,12 @@ import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.findNavController
-import com.bumptech.glide.Glide
-import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.uogames.data.entities.objectData.CharacteristicsObjectData
 import com.uogames.data.entities.objectData.PersonObjectData
-import com.uogames.data.entities.responseData.PersonData
 import com.uogames.i_have_quest.R
 import com.uogames.i_have_quest.databinding.FragmentPersonBinding
 import com.uogames.i_have_quest.models.NetworkModel
+import com.uogames.networking.PicassoBuilder
 
 class PersonFragment : Fragment() {
 
@@ -63,19 +62,16 @@ class PersonFragment : Fragment() {
         binding.tvName.text = personData.personName
         binding.tvLvl.text = personData.lvl.toString()
         try {
-            Glide.with(requireActivity())
-                .load(getString(R.string.link_image_server) + personData.image)
-                .diskCacheStrategy(
-                    DiskCacheStrategy.NONE
-                ).skipMemoryCache(true).into(binding.ivPhoto)
+            PicassoBuilder.get(requireContext()).load(getString(R.string.link_image_server) + personData.image).into(binding.ivPhoto)
+            Log.e("TAG", getString(R.string.link_image_server) + personData.image.toString())
         } catch (e: Throwable) {
-
+            Log.e("TAG", e.message.toString())
         }
         binding.btnSendMessage.setOnClickListener {
             val personID = personData.id.toInt()
             view?.findNavController()?.navigate(
                 R.id.chatMessagesFragment,
-                Bundle().apply { putInt(ChatMessagesFragment.ID_RECEIVER_KEY, personID)})
+                Bundle().apply { putInt(ChatMessagesFragment.ID_RECEIVER_KEY, personID) })
         }
     }
 
@@ -87,6 +83,7 @@ class PersonFragment : Fragment() {
     }
 
     private fun initObservers() {
+
         networkModel.personData.observe(requireActivity()) {
             setPersonInfo(it)
         }
@@ -94,5 +91,4 @@ class PersonFragment : Fragment() {
             setCharacteristics(it)
         }
     }
-
 }

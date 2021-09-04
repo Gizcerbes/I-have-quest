@@ -3,19 +3,18 @@ package com.uogames.i_have_quest.networking
 import com.uogames.i_have_quest.networking.data.responses.*
 import com.uogames.networking.data.responses.CountResponse
 import com.uogames.networking.data.responses.YourMessageResponse
+import okhttp3.RequestBody
 import retrofit2.Response
-import retrofit2.http.GET
-import retrofit2.http.Header
-import retrofit2.http.POST
-import retrofit2.http.Query
+import retrofit2.http.*
 
 interface GameService {
 
+    @FormUrlEncoded
     @POST("login")
     suspend fun login(
-        @Query("login")
+        @Field("login")
         login: String,
-        @Query("password")
+        @Field("password")
         password: String
     ): Response<LoginResponse>
 

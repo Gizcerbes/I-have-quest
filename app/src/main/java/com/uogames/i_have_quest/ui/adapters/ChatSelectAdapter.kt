@@ -5,17 +5,18 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.annotation.DrawableRes
 import androidx.databinding.DataBindingUtil
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
-import com.bumptech.glide.Glide
-import com.bumptech.glide.load.engine.DiskCacheStrategy
+import com.squareup.picasso.Picasso
 import com.uogames.data.entities.objectData.PersonObjectData
 import com.uogames.i_have_quest.R
 import com.uogames.data.entities.responseData.ChatInfoData
 import com.uogames.i_have_quest.databinding.FragmentChatSelectBinding
 import com.uogames.i_have_quest.models.NetworkModel
 import com.uogames.i_have_quest.ui.ChatMessagesFragment
+import com.uogames.networking.PicassoBuilder
 
 class ChatSelectAdapter(
     private val size: Int,
@@ -61,20 +62,22 @@ class ChatSelectAdapter(
             if (type == GLOBAL) {
                 binding.tvChatName.visibility = View.VISIBLE
                 binding.tvUserName.visibility = View.GONE
+                loadIcon(R.drawable.ic_baseline_person_24)
             } else {
                 binding.tvChatName.visibility = View.GONE
                 binding.tvUserName.visibility = View.VISIBLE
 
-                if (chatInfo.chatInfo?.idAuthor != networkModel.loginData.value?.user?.id) {
-                    networkModel.getPersonById(chatInfo.chatInfo?.idAuthor?.toInt()) {
+
+                if (chatInfo.chatInfo?.idAuthor == networkModel.loginData.value?.user?.id) {
+                    networkModel.getPersonById(chatInfo.chatInfo?.idReceiver?.toInt()) {
                         binding.tvUserName.text = it.person?.personName
-                    }
-                    networkModel.getPersonById(chatInfo.chatInfo?.idAuthor?.toInt()) {
                         loadIcon(it.person)
                     }
                 } else {
-                    binding.tvUserName.text = networkModel.loginData.value?.person?.personName
-                    loadIcon(networkModel.loginData.value?.person)
+                    networkModel.getPersonById(chatInfo.chatInfo?.idAuthor?.toInt()) {
+                        binding.tvUserName.text = it.person?.personName
+                        loadIcon(it.person)
+                    }
                 }
             }
             binding.tvChatName.text = chatInfo.chatInfo?.nameChat
@@ -96,11 +99,19 @@ class ChatSelectAdapter(
         private fun loadIcon(personData: PersonObjectData?) {
             try {
                 context?.let {
-                    Glide.with(it)
+                    PicassoBuilder.get(it)
                         .load(context.getString(R.string.link_image_server) + personData?.image)
-                        .diskCacheStrategy(
-                            DiskCacheStrategy.NONE
-                        ).skipMemoryCache(true).into(binding.ivPhoto)
+                        .into(binding.ivPhoto)
+                }
+            } catch (e: Throwable) {
+
+            }
+        }
+
+        private fun loadIcon(@DrawableRes res: Int) {
+            try {
+                context?.let {
+                    PicassoBuilder.get(it).load(res).into(binding.ivPhoto)
                 }
             } catch (e: Throwable) {
 

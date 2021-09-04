@@ -7,14 +7,13 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
-import com.bumptech.glide.Glide
-import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.uogames.data.entities.responseData.PersonData
 import com.uogames.i_have_quest.R
 import com.uogames.data.entities.responseData.YourMessageData
 import com.uogames.i_have_quest.databinding.FragmentChatItemBinding
 import com.uogames.i_have_quest.models.NetworkModel
 import com.uogames.i_have_quest.ui.PersonFragment
+import com.uogames.networking.PicassoBuilder
 
 class ChatItemAdapter(
     private val chatName: String,
@@ -43,11 +42,8 @@ class ChatItemAdapter(
         private fun loadIcon(personData: PersonData) {
             try {
                 context?.let {
-                    Glide.with(it)
-                        .load(context.getString(R.string.link_image_server) + personData.person?.image)
-                        .diskCacheStrategy(
-                            DiskCacheStrategy.NONE
-                        ).skipMemoryCache(true).into(binding.ivPhoto)
+                    PicassoBuilder.get(it).load(context.getString(R.string.link_image_server) + personData.person?.image)
+                   .into(binding.ivPhoto)
                 }
             } catch (e: Throwable) {
 
