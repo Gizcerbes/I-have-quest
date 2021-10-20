@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "502067895010",
+    "project_id": "proven-grin-329619",
+    "storage_bucket": "proven-grin-329619.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:502067895010:android:d25913c1d399eb9a839cbb",
+        "android_client_info": {
+          "package_name": "com.uogames.i_have_quest"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "502067895010-vv4omlpp1nnvni9b262pgns40hqtdqp8.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.uogames.i_have_quest",
+            "certificate_hash": "ea58e7cb313afce3c9e2109ad8303084e0b3da77"
+          }
+        },
+        {
+          "client_id": "502067895010-1o12sgfbu86ptfeb6gdp8ismufqidg8g.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD26Z9mPkDCVdi_eQ8-mEkiBuTw-0ukYrg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "502067895010-1o12sgfbu86ptfeb6gdp8ismufqidg8g.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
