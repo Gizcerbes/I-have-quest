@@ -2,7 +2,7 @@ package com.uogames.network.data.entities
 
 import com.google.gson.annotations.SerializedName
 
-data class Characteristic(
+data class CharacteristicResponse(
     @SerializedName("agility")
     val agility: Int?,
     @SerializedName("defence")

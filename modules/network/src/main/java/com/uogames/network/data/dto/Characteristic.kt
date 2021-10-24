@@ -1,6 +1,6 @@
 package com.uogames.network.data.dto
 
-data class CharacteristicDTO(
+data class Characteristic(
     val agility: Int,
     val defence: Int,
     val force: Int,

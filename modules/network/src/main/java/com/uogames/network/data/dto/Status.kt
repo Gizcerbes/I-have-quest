@@ -2,8 +2,8 @@ package com.uogames.network.data.dto
 
 import java.util.*
 
-data class StatusDTO(
+data class Status(
     val message: String = "OK",
     val timestamp: Long = Date().time,
-    val type: TypeDTO = TypeDTO(description = "OK", 200)
+    val type: Type = Type(description = "OK", 200)
 )

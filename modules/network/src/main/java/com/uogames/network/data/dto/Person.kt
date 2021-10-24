@@ -1,6 +1,6 @@
 package com.uogames.network.data.dto
 
-data class PersonDTO(
+data class Person(
     val id: Long,
     val name: String,
     val title: String

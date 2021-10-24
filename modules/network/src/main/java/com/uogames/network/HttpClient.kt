@@ -7,7 +7,7 @@ import java.security.SecureRandom
 import java.security.cert.X509Certificate
 import javax.net.ssl.*
 
-public object HttpClient {
+object HttpClient {
     private val trusts = createTrustAllCerts()
     //private val cookie = createCookieJar()
 

@@ -1,6 +1,6 @@
 package com.uogames.network.data.dto
 
-data class TypeDTO(
+data class Type(
 	val description: String,
 	val value: Int
 )

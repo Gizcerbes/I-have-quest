@@ -3,7 +3,7 @@ package com.uogames.network.data.entities
 
 import com.google.gson.annotations.SerializedName
 
-public data class LoginResponse(
+data class UserAccessResponse(
     @SerializedName("access_key")
     val accessKey: String?
 )

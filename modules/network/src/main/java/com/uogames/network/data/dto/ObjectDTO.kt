@@ -1,4 +1,3 @@
 package com.uogames.network.data.dto
 
-class ObjectDTO {
-}
+data class ObjectDTO<T>(val any: T?, val status: Status)

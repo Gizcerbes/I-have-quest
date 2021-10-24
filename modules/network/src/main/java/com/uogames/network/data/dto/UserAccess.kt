@@ -1,5 +1,5 @@
 package com.uogames.network.data.dto
 
-data class UserAccessDTO(
+data class UserAccess(
 	val accessKey: String
 )
