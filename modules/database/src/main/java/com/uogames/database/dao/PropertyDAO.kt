@@ -1,18 +1,24 @@
 package com.uogames.database.dao
 
 import androidx.room.*
-import com.uogames.database.entity.MyPersonEntity
+import com.uogames.database.entity.PropertyEntity
 
 @Dao
-interface MyPersonDAO {
+interface PropertyDAO {
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun insert(myPerson: MyPersonEntity)
+    suspend fun insert(myPerson: PropertyEntity)
 
     @Delete
-    suspend fun delete(myPerson: MyPersonEntity)
+    suspend fun delete(myPerson: PropertyEntity)
 
-    @Query("SELECT * FROM ")
-    suspend fun getPerson() : MyPersonEntity
+    @Query("DELETE FROM game_property WHERE `id`=:id")
+    suspend fun delete(id: Int)
+
+    @Query("SELECT * FROM game_property WHERE `id`=:id")
+    suspend fun searchPropertyById(id: Int): PropertyEntity?
+
+    @Query("DELETE FROM game_property")
+    suspend fun clear()
 
 }

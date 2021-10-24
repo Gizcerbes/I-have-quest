@@ -1,6 +1,6 @@
 package com.uogames.database.dto
 
-data class Characteristics(
+data class Characteristic(
     val id: Long,
     val agility: Int,
     val defence: Int,
