@@ -1,3 +1,6 @@
-rootProject.name = "I-has-quest"
+rootProject.name = "I-have-quest"
 include ':app'
-include ':network'
+include "modules:dto"
+include "modules:database"
+include "modules:model"
+include "modules:network"
