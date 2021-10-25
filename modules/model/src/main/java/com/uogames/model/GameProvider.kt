@@ -35,10 +35,16 @@ class GameProvider private constructor(
     fun isAccess(callback: (Boolean) -> Unit) = access.isAccess(database, callback)
 
     fun login(name: String, password: String, callback: (Boolean) -> Unit) =
-        access.login(name, password, networkRepository, database, callback)
+        access.login(name, password, networkRepository, database) {
+            callback(it)
+            updateAll()
+        }
 
     fun registration(name: String, password: String, callback: (Boolean) -> Unit) =
-        access.registration(name, password, networkRepository, database, callback)
+        access.registration(name, password, networkRepository, database) {
+            callback(it)
+            updateAll()
+        }
 
     fun getMyPerson(callback: (Person) -> Unit) =
         person.getMyPerson(networkRepository, database, callback)
