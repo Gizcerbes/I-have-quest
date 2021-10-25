@@ -28,6 +28,7 @@ class GameProvider private constructor(
 
     private fun updateAll() {
 
+
     }
 
     fun isAccess(callback: (Boolean) -> Unit) = access.isAccess(database, callback)
