@@ -3,6 +3,7 @@ package com.uogames.model
 import android.content.Context
 import com.uogames.database.DatabaseRepository
 import com.uogames.network.Repository
+import com.uogames.network.data.dto.Person
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -25,10 +26,10 @@ class GameProvider private constructor(
     }
 
     private val access = AccessProvider()
+    private val person = PersonProvider()
 
     private fun updateAll() {
-
-
+        person.updateMyPerson(networkRepository, database) {}
     }
 
     fun isAccess(callback: (Boolean) -> Unit) = access.isAccess(database, callback)
@@ -36,7 +37,13 @@ class GameProvider private constructor(
     fun login(name: String, password: String, callback: (Boolean) -> Unit) =
         access.login(name, password, networkRepository, database, callback)
 
-    fun registration(name: String, password: String,callback: (Boolean) -> Unit) =
-        access.registration(name,password,networkRepository, database, callback)
+    fun registration(name: String, password: String, callback: (Boolean) -> Unit) =
+        access.registration(name, password, networkRepository, database, callback)
+
+    fun getMyPerson(callback: (Person) -> Unit) =
+        person.getMyPerson(networkRepository, database, callback)
+
+    fun getPersonById(id: Long, callback: (Person) -> Unit) =
+        person.getPersonById(id, networkRepository, database, callback)
 
 }

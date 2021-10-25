@@ -23,7 +23,6 @@ internal class AccessProvider : Provider() {
                 mainScope.launch { callback(false) }
             }
         }
-
     }
 
     fun isAccess(
