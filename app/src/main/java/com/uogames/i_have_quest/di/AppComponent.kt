@@ -1,7 +1,7 @@
 package com.example.myapplicationdagger.di
 
 import android.app.Application
-import com.example.myapplicationdagger.App
+import com.uogames.i_have_quest.App
 import dagger.BindsInstance
 import dagger.Component
 import dagger.android.AndroidInjection
@@ -13,8 +13,6 @@ import javax.inject.Singleton
 @Component(
     modules = [
         AndroidInjectionModule::class,
-        ActivityBuilderModule::class,
-        NetworkModule::class
     ]
 )
 interface AppComponent : AndroidInjector<App> {

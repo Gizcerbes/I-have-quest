@@ -18,7 +18,6 @@ import com.uogames.i_have_quest.utils.checkLength
 class LoginFragment : Fragment() {
 
     private lateinit var binding: FragmentLoginBinding
-    private val networkModel by lazy { ViewModelProvider(requireActivity()).get(NetworkModel::class.java) }
 
     override fun onCreateView(
         inflater: LayoutInflater,
