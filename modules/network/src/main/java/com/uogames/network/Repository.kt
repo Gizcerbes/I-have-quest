@@ -1,6 +1,7 @@
 package com.uogames.network
 
 import com.google.gson.Gson
+import com.uogames.database.dto.Health
 import com.uogames.network.data.dto.*
 import com.uogames.network.data.entities.StatusResponse
 import com.uogames.network.data.mappers.CharacteristicMapper.toDTO

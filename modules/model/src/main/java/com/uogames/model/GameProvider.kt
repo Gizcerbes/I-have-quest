@@ -2,7 +2,6 @@ package com.uogames.model
 
 import android.content.Context
 import com.uogames.database.DatabaseRepository
-import com.uogames.database.dto.UserDTO
 import com.uogames.network.Repository
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers

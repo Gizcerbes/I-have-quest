@@ -1,4 +1,4 @@
-package com.uogames.model.mappers
+package com.uogames.model
 
 class PersonProvider {
 }
