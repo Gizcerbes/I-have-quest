@@ -4,9 +4,8 @@ import androidx.room.Entity
 import androidx.room.PrimaryKey
 
 @Entity(tableName = "game_property")
-data class MyPersonEntity(
-    @PrimaryKey(autoGenerate = true)
-    val id: Long,
-    val key: String,
+data class PropertyEntity(
+    @PrimaryKey(autoGenerate = false)
+    val id: Int = 0,
     val value: String
 )

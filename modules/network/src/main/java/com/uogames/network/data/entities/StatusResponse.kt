@@ -3,7 +3,7 @@ package com.uogames.network.data.entities
 
 import com.google.gson.annotations.SerializedName
 
-public data class StatusResponse(
+data class StatusResponse(
     @SerializedName("message")
     val message: String?,
     @SerializedName("timestamp")

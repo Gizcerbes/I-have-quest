@@ -1,4 +1,14 @@
 package com.uogames.database.mapper
 
-object PersonMapper {
+import com.uogames.database.entity.PersonEntity
+import com.uogames.network.data.dto.Person
+
+object PersonMapper : Mapper<PersonEntity, Person> {
+    override fun PersonEntity.toDTO(): Person {
+        return Person(id, name, title)
+    }
+
+    override fun Person.toEntity(): PersonEntity {
+        return PersonEntity(id, name, title)
+    }
 }

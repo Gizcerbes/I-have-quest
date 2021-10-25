@@ -1,6 +1,6 @@
 package com.uogames.database.dto
 
-data class PropertyDTO(
+data class Property(
     val id: Int,
     val value: String
 )

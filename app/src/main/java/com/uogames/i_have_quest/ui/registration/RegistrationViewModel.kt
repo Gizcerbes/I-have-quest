@@ -4,7 +4,6 @@ import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import com.uogames.model.GameProvider
 
 class RegistrationModel(application: Application) : AndroidViewModel(application) {
 
@@ -12,7 +11,7 @@ class RegistrationModel(application: Application) : AndroidViewModel(application
         DEFAULT, SHORT, LONG, EXIST, NOT_EQUALS
     }
 
-    private val repository = GameProvider.getINSTANCE(application.applicationContext)
+    //private val repository = GameProvider.getINSTANCE(application.applicationContext)
 
     private val _username = MutableLiveData("")
     val username: LiveData<String> = _username
@@ -70,10 +69,10 @@ class RegistrationModel(application: Application) : AndroidViewModel(application
             _passwordErrorCode.value == Errors.DEFAULT &&
             _repeatErrorCode.value == Errors.DEFAULT
         ) {
-            repository.registration(username, password) { message, code ->
-                callback(message, code)
-                _waiting.postValue(false)
-            }
+//            repository.registration(username, password) { message, code ->
+//                callback(message, code)
+//                _waiting.postValue(false)
+//            }
         }
     }
 }
