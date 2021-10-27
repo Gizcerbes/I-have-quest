@@ -1,6 +1,6 @@
 package com.uogames.i_have_quest
 
-import com.example.myapplicationdagger.di.DaggerAppComponent
+import com.uogames.i_have_quest.di.DaggerAppComponent
 import dagger.android.AndroidInjector
 import dagger.android.DaggerApplication
 
