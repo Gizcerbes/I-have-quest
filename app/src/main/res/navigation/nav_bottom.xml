@@ -14,7 +14,7 @@
 
     <fragment
         android:id="@+id/navigation_person"
-        android:name="com.uogames.i_have_quest.ui.PersonFragment"
+        android:name="com.uogames.i_have_quest.ui.person.PersonFragment"
         android:label="PersonFragment"
         tools:layout="@layout/fragment_person"/>
 

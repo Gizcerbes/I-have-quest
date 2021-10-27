@@ -1,4 +1,4 @@
-package com.uogames.i_have_quest.ui
+package com.uogames.i_have_quest.ui.person
 
 import android.os.Bundle
 import android.view.LayoutInflater

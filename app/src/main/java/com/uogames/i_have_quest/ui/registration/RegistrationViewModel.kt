@@ -12,8 +12,6 @@ class RegistrationViewModel @Inject constructor(private val repository: GameProv
         DEFAULT, SHORT, LONG, EXIST, NOT_EQUALS
     }
 
-    //private val repository = GameProvider.getINSTANCE(application.applicationContext)
-
     private val _username = MutableLiveData("")
     val username: LiveData<String> = _username
     private val _usernameErrorCode = MutableLiveData(Errors.DEFAULT)

@@ -1,5 +1,6 @@
 package com.uogames.model
 
+import android.util.Log
 import com.uogames.database.DatabaseRepository
 import com.uogames.network.Repository
 import com.uogames.network.data.dto.ObjectDTO

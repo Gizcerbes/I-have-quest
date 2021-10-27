@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.core.widget.addTextChangedListener
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
@@ -62,8 +63,11 @@ class LoginFragment : DaggerFragment() {
 		}
 
 		bind.btnLogIn.setOnClickListener {
-			model.login() {
-				findNavController().navigate(R.id.to_bottomNavigationFragment)
+			model.login() { message, code ->
+				when (code) {
+					200 -> findNavController().navigate(R.id.to_bottomNavigationFragment)
+					else -> Toast.makeText(requireContext(), message, Toast.LENGTH_SHORT).show()
+				}
 			}
 		}
 
