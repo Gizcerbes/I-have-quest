@@ -6,7 +6,7 @@ import androidx.lifecycle.ViewModel
 import com.uogames.model.GameProvider
 import javax.inject.Inject
 
-class RegistrationModel @Inject constructor(private val repository: GameProvider) : ViewModel() {
+class RegistrationViewModel @Inject constructor(private val repository: GameProvider) : ViewModel() {
 
     enum class Errors {
         DEFAULT, SHORT, LONG, EXIST, NOT_EQUALS
