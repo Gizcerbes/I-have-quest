@@ -1,11 +1,12 @@
 package com.uogames.i_have_quest.ui.registration
 
-import android.app.Application
-import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.ViewModel
+import com.uogames.model.GameProvider
+import javax.inject.Inject
 
-class RegistrationModel(application: Application) : AndroidViewModel(application) {
+class RegistrationModel @Inject constructor(private val repository: GameProvider) : ViewModel() {
 
     enum class Errors {
         DEFAULT, SHORT, LONG, EXIST, NOT_EQUALS
@@ -69,10 +70,10 @@ class RegistrationModel(application: Application) : AndroidViewModel(application
             _passwordErrorCode.value == Errors.DEFAULT &&
             _repeatErrorCode.value == Errors.DEFAULT
         ) {
-//            repository.registration(username, password) { message, code ->
-//                callback(message, code)
-//                _waiting.postValue(false)
-//            }
+            repository.registration(username, password) { message, code ->
+                callback(message, code)
+                _waiting.postValue(false)
+            }
         }
     }
 }

@@ -4,9 +4,6 @@ import android.content.Context
 import com.uogames.database.DatabaseRepository
 import com.uogames.network.Repository
 import com.uogames.network.data.dto.Person
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.launch
 
 class GameProvider private constructor(
     private val database: DatabaseRepository,
@@ -34,15 +31,15 @@ class GameProvider private constructor(
 
     fun isAccess(callback: (Boolean) -> Unit) = access.isAccess(database, callback)
 
-    fun login(name: String, password: String, callback: (Boolean) -> Unit) =
-        access.login(name, password, networkRepository, database) {
-            callback(it)
+    fun login(name: String, password: String,  callback: (message: String, code: Int) -> Unit) =
+        access.login(name, password, networkRepository, database) {mess , code ->
+            callback(mess,code)
             updateAll()
         }
 
-    fun registration(name: String, password: String, callback: (Boolean) -> Unit) =
-        access.registration(name, password, networkRepository, database) {
-            callback(it)
+    fun registration(name: String, password: String, callback: (message: String, code: Int) -> Unit) =
+        access.registration(name, password, networkRepository, database) { mess , code ->
+            callback(mess,code)
             updateAll()
         }
 

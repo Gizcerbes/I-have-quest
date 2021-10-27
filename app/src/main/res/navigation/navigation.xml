@@ -9,41 +9,30 @@
         android:id="@+id/loginFragment"
         android:name="com.uogames.i_have_quest.ui.login.LoginFragment"
         android:label="LoginFragment"
-        tools:layout="@layout/fragment_login" />
+        tools:layout="@layout/fragment_login">
+        <action
+            android:id="@+id/to_registrationFragment"
+            app:destination="@id/registrationFragment" />
+        <action
+            android:id="@+id/to_bottomNavigationFragment"
+            app:destination="@id/secondNavigationFragment" />
+    </fragment>
+
     <fragment
         android:id="@+id/registrationFragment"
         android:name="com.uogames.i_have_quest.ui.RegistrationFragment"
         android:label="RegistrationFragment"
-        tools:layout="@layout/fragment_registration" />
-    <fragment
-        android:id="@+id/navigation_map"
-        android:name="com.uogames.i_have_quest.ui.MapsFragment"
-        android:label="fragment_maps"
-        tools:layout="@layout/fragment_maps" />
-    <fragment
-        android:id="@+id/navigation_quest"
-        android:name="com.uogames.i_have_quest.ui.QuestFragment"
-        android:label="QuestFragment"
-        tools:layout="@layout/fragment_quest" />
+        tools:layout="@layout/fragment_registration">
+        <action
+            android:id="@+id/to_bottomNavigationFragment"
+            app:destination="@id/secondNavigationFragment" />
+    </fragment>
 
     <fragment
-        android:id="@+id/navigation_person"
-        android:name="com.uogames.i_have_quest.ui.PersonFragment"
-        android:label="PersonFragment"
-        tools:layout="@layout/fragment_person" />
-    <fragment
-        android:id="@+id/navigation_backpack"
-        android:name="com.uogames.i_have_quest.ui.BackpackFragment"
-        android:label="BackpackFragment"
-        tools:layout="@layout/fragment_backpack" />
-    <fragment
-        android:id="@+id/navigation_chat"
-        android:name="com.uogames.i_have_quest.ui.ChatInfoFragment"
-        android:label="ChatFragment" />
-    <fragment
-        android:id="@+id/chatMessagesFragment"
-        android:name="com.uogames.i_have_quest.ui.ChatMessagesFragment"
-        android:label="ChatMessagesFragment" />
+        android:id="@+id/secondNavigationFragment"
+        android:name="com.uogames.i_have_quest.ui.second_navigation.BottomNavigationFragment"
+        android:label="SecondNavigationFragment"
+        tools:layout="@layout/fragment_second_navigation" />
 
 
 </navigation>

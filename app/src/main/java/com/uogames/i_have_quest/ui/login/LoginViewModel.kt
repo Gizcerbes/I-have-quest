@@ -8,64 +8,64 @@ import javax.inject.Inject
 
 class LoginViewModel @Inject constructor(private val game: GameProvider) : ViewModel() {
 
-    enum class Errors {
-        OK, SHORT, LONG
-    }
+	enum class Errors {
+		DEFAULT, SHORT, LONG
+	}
 
 
-    private val _username = MutableLiveData("")
-    val username: LiveData<String> = _username
-    private val _usernameError = MutableLiveData(Errors.OK)
-    val usernameError: LiveData<Errors> = _usernameError
+	private val _username = MutableLiveData("")
+	val username: LiveData<String> = _username
+	private val _usernameError = MutableLiveData(Errors.DEFAULT)
+	val usernameError: LiveData<Errors> = _usernameError
 
-    private val _password = MutableLiveData("")
-    val password: LiveData<String> = _password
-    private val _passwordError = MutableLiveData(Errors.OK)
-    val passwordError: LiveData<Errors> = _passwordError
+	private val _password = MutableLiveData("")
+	val password: LiveData<String> = _password
+	private val _passwordError = MutableLiveData(Errors.DEFAULT)
+	val passwordError: LiveData<Errors> = _passwordError
 
-    private val _busy = MutableLiveData(false)
-    val busy: LiveData<Boolean> = _busy
+	private val _busy = MutableLiveData(false)
+	val busy: LiveData<Boolean> = _busy
 
-    fun setUsername(username: String) {
-        _username.value = username
-        _usernameError.value = Errors.OK
-    }
+	fun setUsername(username: String) {
+		_username.value = username
+		_usernameError.value = Errors.DEFAULT
+	}
 
-    fun setPassword(password: String) {
-        _password.value = password
-        _passwordError.value = Errors.OK
-    }
+	fun setPassword(password: String) {
+		_password.value = password
+		_passwordError.value = Errors.DEFAULT
+	}
 
-    fun login(result: (Boolean) -> Unit = {}) {
-        _busy.value = true
+	fun login(result: (message: String, code: Int) -> Unit = { _, _ -> }) {
+		_busy.value = true
 
-        val username = username.value
-        val password = password.value
+		val username = username.value
+		val password = password.value
 
-        if (username.isNullOrEmpty() || username.length < 3) {
-            _usernameError.value = Errors.SHORT
-        } else if (username.length > 13) {
-            _usernameError.value = Errors.LONG
-        }
+		if (username.isNullOrEmpty() || username.length < 3) {
+			_usernameError.value = Errors.SHORT
+		} else if (username.length > 13) {
+			_usernameError.value = Errors.LONG
+		}
 
-        if (password.isNullOrEmpty() || password.length < 5) {
-            _passwordError.value = Errors.SHORT
-        } else if (password.length > 31) {
-            _passwordError.value = Errors.LONG
-        }
+		if (password.isNullOrEmpty() || password.length < 5) {
+			_passwordError.value = Errors.SHORT
+		} else if (password.length > 31) {
+			_passwordError.value = Errors.LONG
+		}
 
-        if (
-            usernameError.value == Errors.OK &&
-            passwordError.value == Errors.OK
-        ) {
-            game.login(username.orEmpty(), password.orEmpty()) {
-                result(it)
-                _busy.value = false
-            }
-        } else {
-            _busy.value = false
-        }
+		if (
+			usernameError.value == Errors.DEFAULT &&
+			passwordError.value == Errors.DEFAULT
+		) {
+			game.login(username.orEmpty(), password.orEmpty()) { mess, code ->
+				result(mess, code)
+				_busy.value = false
+			}
+		} else {
+			_busy.value = false
+		}
 
-    }
+	}
 
 }
