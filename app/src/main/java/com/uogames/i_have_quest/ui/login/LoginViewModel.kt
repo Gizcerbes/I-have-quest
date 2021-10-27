@@ -28,31 +28,43 @@ class LoginViewModel @Inject constructor(private val game: GameProvider) : ViewM
 
     fun setUsername(username: String) {
         _username.value = username
+        _usernameError.value = Errors.OK
     }
 
     fun setPassword(password: String) {
         _password.value = password
+        _passwordError.value = Errors.OK
     }
 
     fun login(result: (Boolean) -> Unit = {}) {
+        _busy.value = true
+
         val username = username.value
         val password = password.value
 
         if (username.isNullOrEmpty() || username.length < 3) {
             _usernameError.value = Errors.SHORT
+        } else if (username.length > 13) {
+            _usernameError.value = Errors.LONG
         }
 
         if (password.isNullOrEmpty() || password.length < 5) {
             _passwordError.value = Errors.SHORT
+        } else if (password.length > 31) {
+            _passwordError.value = Errors.LONG
         }
 
         if (
             usernameError.value == Errors.OK &&
             passwordError.value == Errors.OK
         ) {
-            game.login(username.orEmpty(), password.orEmpty(), result)
+            game.login(username.orEmpty(), password.orEmpty()) {
+                result(it)
+                _busy.value = false
+            }
+        } else {
+            _busy.value = false
         }
-
 
     }
 
