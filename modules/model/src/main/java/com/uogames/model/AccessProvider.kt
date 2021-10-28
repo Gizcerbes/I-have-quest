@@ -1,16 +1,15 @@
 package com.uogames.model
 
-import android.util.Log
 import com.uogames.database.DatabaseRepository
 import com.uogames.network.Repository
-import com.uogames.network.data.dto.ObjectDTO
+import com.uogames.network.data.dto.ResponseDTO
 import com.uogames.network.data.dto.UserAccess
 import kotlinx.coroutines.launch
 
 internal class AccessProvider : Provider() {
 
 	private fun updateData(
-		access: ObjectDTO<UserAccess>,
+		access: ResponseDTO<UserAccess>,
 		database: DatabaseRepository,
 		callback: (message: String, code: Int) -> Unit
 	) = ioScope.launch {
@@ -21,9 +20,6 @@ internal class AccessProvider : Provider() {
 			}
 			401 -> {
 				database.clear()
-				mainScope.launch { callback(access.status.message, access.status.type.value) }
-			}
-			else -> {
 				mainScope.launch { callback(access.status.message, access.status.type.value) }
 			}
 		}

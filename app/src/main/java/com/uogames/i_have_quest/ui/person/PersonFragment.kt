@@ -15,7 +15,7 @@ class PersonFragment : DaggerFragment() {
 
     @Inject
     lateinit var factory: ViewModelFactory
-    private val viewModel by lazy {
+    private val model by lazy {
         ViewModelProvider(requireActivity(), factory).get(PersonViewModel::class.java)
     }
 
