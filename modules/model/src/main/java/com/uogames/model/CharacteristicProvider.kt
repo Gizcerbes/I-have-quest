@@ -25,7 +25,7 @@ class CharacteristicProvider : Provider() {
 	fun updateMyCharacteristic(
 		network: Repository,
 		database: DatabaseRepository,
-		callback: (Characteristic) -> Unit
+		callback: (Characteristic) -> Unit = {}
 	) = ioScope.launch {
 		val resp = network.getMyCharacteristic(database.getAccessKey())
 		update(resp, database, callback)
@@ -35,7 +35,7 @@ class CharacteristicProvider : Provider() {
 		id: Long,
 		network: Repository,
 		database: DatabaseRepository,
-		callback: (Characteristic) -> Unit
+		callback: (Characteristic) -> Unit = {}
 	) = ioScope.launch {
 		val resp = network.getCharacteristic(database.getAccessKey(), id)
 		update(resp, database, callback)

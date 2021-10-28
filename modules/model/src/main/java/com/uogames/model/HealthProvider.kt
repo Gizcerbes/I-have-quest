@@ -25,7 +25,7 @@ class HealthProvider : Provider() {
 	fun updateMyHealth(
 		network: Repository,
 		database: DatabaseRepository,
-		callback: (Health) -> Unit
+		callback: (Health) -> Unit = {}
 	) = ioScope.launch {
 		val resp = network.getMyHealth(database.getAccessKey())
 		update(resp, database, callback)
@@ -35,7 +35,7 @@ class HealthProvider : Provider() {
 		id: Long,
 		network: Repository,
 		database: DatabaseRepository,
-		callback: (Health) -> Unit
+		callback: (Health) -> Unit = {}
 	) = ioScope.launch {
 		val resp = network.getHealth(database.getAccessKey(), id)
 		update(resp, database, callback)

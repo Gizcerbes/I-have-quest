@@ -24,7 +24,7 @@ class ExperienceProvider : Provider() {
 	fun updateMyExperience(
 		network: Repository,
 		database: DatabaseRepository,
-		callback: (Experience) -> Unit
+		callback: (Experience) -> Unit = {}
 	) = ioScope.launch {
 		val resp = network.getMyExperience(database.getAccessKey())
 		update(resp, database, callback)
@@ -34,7 +34,7 @@ class ExperienceProvider : Provider() {
 		id: Long,
 		network: Repository,
 		database: DatabaseRepository,
-		callback: (Experience) -> Unit
+		callback: (Experience) -> Unit = {}
 	) = ioScope.launch {
 		val resp = network.getExperience(database.getAccessKey(), id)
 		update(resp, database, callback)
