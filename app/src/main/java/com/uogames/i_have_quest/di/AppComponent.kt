@@ -1,18 +1,22 @@
-package com.example.myapplicationdagger.di
+package com.uogames.i_have_quest.di
 
 import android.app.Application
 import com.uogames.i_have_quest.App
 import dagger.BindsInstance
 import dagger.Component
-import dagger.android.AndroidInjection
 import dagger.android.AndroidInjectionModule
 import dagger.android.AndroidInjector
 import javax.inject.Singleton
 
 
+@Singleton
 @Component(
     modules = [
         AndroidInjectionModule::class,
+        ActivityBuilderModule::class,
+        FragmentBuilderModule::class,
+        ViewModelModule::class,
+        ProvidersModule::class
     ]
 )
 interface AppComponent : AndroidInjector<App> {

@@ -1,7 +1,6 @@
 package com.uogames.i_have_quest.ui
 
 import android.content.pm.PackageManager
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.findNavController
@@ -9,8 +8,9 @@ import androidx.navigation.ui.setupWithNavController
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.uogames.i_have_quest.R
 import com.uogames.i_have_quest.models.PermissionModel
+import dagger.android.support.DaggerAppCompatActivity
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : DaggerAppCompatActivity() {
 
     companion object {
         const val PERMISSIONS_REQUEST_ACCESS_FINE_LOCATION = 1

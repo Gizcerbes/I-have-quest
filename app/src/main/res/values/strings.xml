@@ -40,4 +40,9 @@
 <!--    <string name="link_image_server">http://93.125.42.151:8080/IHaveQuest/image?id=</string>-->
     <string name="link_image_server">https://192.168.1.2:8080/IHaveQuest/image?id=</string>
     <string name="send_message">send message</string>
+    <string name="error_username_short">Username is short</string>
+    <string name="errors_username_long">Username is long</string>
+    <string name="errors_password_short">Password is short</string>
+    <string name="errors_password_long">Password is long</string>
+    <string name="password_mismatch">Password mismatch</string>
 </resources>

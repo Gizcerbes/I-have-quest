@@ -12,14 +12,20 @@
 
         <com.google.android.material.appbar.MaterialToolbar
             android:id="@+id/topAppBar"
-            style="@style/Widget.MaterialComponents.Toolbar.Surface"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
-            app:title="Log In" />
+            app:title="Login" />
 
     </com.google.android.material.appbar.AppBarLayout>
 
-    <ScrollView
+    <com.google.android.material.progressindicator.LinearProgressIndicator
+        android:id="@+id/lpi_progress"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:indeterminate="true"
+        android:visibility="gone"/>
+
+    <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
@@ -119,5 +125,5 @@
         </androidx.constraintlayout.widget.ConstraintLayout>
 
 
-    </ScrollView>
+    </androidx.core.widget.NestedScrollView>
 </LinearLayout>
