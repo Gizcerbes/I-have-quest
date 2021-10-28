@@ -41,25 +41,29 @@ class LoginFragment : DaggerFragment() {
 
 		model.usernameError.observe(requireActivity()) {
 			when (it) {
-				LoginViewModel.Errors.SHORT -> bind.tiUsername.error =
-					getString(R.string.error_username_short)
-				LoginViewModel.Errors.LONG -> bind.tiUsername.error =
-					getString(R.string.errors_username_long)
+				LoginViewModel.Errors.SHORT ->
+					bind.tiUsername.error = getString(R.string.error_username_short)
+				LoginViewModel.Errors.LONG ->
+					bind.tiUsername.error = getString(R.string.errors_username_long)
 				else -> bind.tiUsername.error = null
 			}
 		}
 		model.passwordError.observe(requireActivity()) {
 			when (it) {
-				LoginViewModel.Errors.SHORT -> bind.tiPassword.error =
-					getString(R.string.errors_password_short)
-				LoginViewModel.Errors.LONG -> bind.tiPassword.error =
-					getString(R.string.errors_password_long)
+				LoginViewModel.Errors.SHORT ->
+					bind.tiPassword.error = getString(R.string.errors_password_short)
+				LoginViewModel.Errors.LONG ->
+					bind.tiPassword.error = getString(R.string.errors_password_long)
 				else -> bind.tiPassword.error = null
 			}
 		}
 
 		model.busy.observe(requireActivity()) {
-
+			bind.lpiProgress.visibility = if (it) View.VISIBLE else View.GONE
+			bind.btnLogIn.isEnabled = !it
+			bind.btnRegistration.isEnabled = !it
+			bind.tiUsername.isEnabled = !it
+			bind.tiPassword.isEnabled = !it
 		}
 
 		bind.btnLogIn.setOnClickListener {

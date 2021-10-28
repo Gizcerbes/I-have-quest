@@ -19,8 +19,11 @@ internal class AccessProvider : Provider() {
 				mainScope.launch { callback(access.status.message, access.status.type.value) }
 				database.saveAccessKey(accessKey)
 			}
-			else -> {
+			401 -> {
 				database.clear()
+				mainScope.launch { callback(access.status.message, access.status.type.value) }
+			}
+			else -> {
 				mainScope.launch { callback(access.status.message, access.status.type.value) }
 			}
 		}

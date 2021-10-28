@@ -44,4 +44,5 @@
     <string name="errors_username_long">Username is long</string>
     <string name="errors_password_short">Password is short</string>
     <string name="errors_password_long">Password is long</string>
+    <string name="password_mismatch">Password mismatch</string>
 </resources>

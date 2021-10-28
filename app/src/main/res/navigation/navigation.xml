@@ -20,7 +20,7 @@
 
     <fragment
         android:id="@+id/registrationFragment"
-        android:name="com.uogames.i_have_quest.ui.RegistrationFragment"
+        android:name="com.uogames.i_have_quest.ui.registration.RegistrationFragment"
         android:label="RegistrationFragment"
         tools:layout="@layout/fragment_registration">
         <action
