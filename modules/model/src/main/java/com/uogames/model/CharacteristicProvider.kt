@@ -16,6 +16,7 @@ class CharacteristicProvider : Provider() {
 		when (response.status.type.value) {
 			200 -> response.any?.let {
 				mainScope.launch { callback(it) }
+				database.saveCharacteristics(it)
 			}
 			401 -> database.clear()
 		}
@@ -31,7 +32,8 @@ class CharacteristicProvider : Provider() {
 	}
 
 	fun updateCharacteristicById(
-		id: Long, network: Repository,
+		id: Long,
+		network: Repository,
 		database: DatabaseRepository,
 		callback: (Characteristic) -> Unit
 	) = ioScope.launch {
