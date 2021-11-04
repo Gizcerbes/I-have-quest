@@ -3,13 +3,14 @@ package com.uogames.database.dao
 import androidx.room.Dao
 import androidx.room.Delete
 import androidx.room.Insert
+import androidx.room.OnConflictStrategy.REPLACE
 import androidx.room.Query
 import com.uogames.database.entity.ExperienceEntity
 
 @Dao
 interface ExperienceDAO {
 
-    @Insert
+    @Insert(onConflict = REPLACE)
     suspend fun insert(experienceEntity: ExperienceEntity)
 
     @Delete

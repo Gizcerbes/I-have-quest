@@ -25,48 +25,6 @@ class ChatInfoFragment : Fragment() {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-//        binding.clSearch.visibility = View.VISIBLE
-//        binding.tlTabChatLayout.addOnTabSelectedListener(initMenu())
-//        networkModel.countPersonalChats.observe(requireActivity()){
-//            binding.rvFragmentChat.adapter = ChatSelectAdapter(it.toInt(), ChatSelectAdapter.PERSONAL, networkModel, context)
-//        }
-//        networkModel.countForumChats.observe(requireActivity()){
-//            binding.rvFragmentChat.adapter = ChatSelectAdapter(it.toInt(), ChatSelectAdapter.FORUM, networkModel, context)
-//        }
-//        networkModel.updateCountPersonalChats()
-    }
 
-//    private fun initMenu(): TabLayout.OnTabSelectedListener {
-//        return object : TabLayout.OnTabSelectedListener {
-//            override fun onTabSelected(tab: TabLayout.Tab?) {
-//                tab?.let { tabSelect(it) }
-//            }
-//
-//            override fun onTabUnselected(tab: TabLayout.Tab?) {
-//            }
-//
-//            override fun onTabReselected(tab: TabLayout.Tab?) {
-//                tab?.let { tabSelect(it) }
-//            }
-//
-//            private fun tabSelect(tab: TabLayout.Tab){
-//                when (tab.text) {
-//                    getString(R.string.global) -> {
-//                        binding.clSearch.visibility = View.GONE
-//                        val adapter = ChatSelectAdapter(1, ChatSelectAdapter.GLOBAL, networkModel, requireContext())
-//                        binding.rvFragmentChat.adapter = adapter
-//                    }
-//                    getText(R.string.personal) -> {
-//                        binding.clSearch.visibility = View.VISIBLE
-//                        networkModel.updateCountPersonalChats()
-//                    }
-//                    getText(R.string.forum) -> {
-//                        binding.clSearch.visibility = View.VISIBLE
-//                        networkModel.updateCountForumChats()
-//                    }
-//                }
-//            }
-//
-//        }
-//    }
+    }
 }

@@ -18,7 +18,6 @@ import com.uogames.i_have_quest.models.PermissionModel
 
 class MapsFragment : Fragment() {
 
-    //private val navigationMenu by lazy { view?.findViewById<BottomNavigationView>(R.id.bottom_navi) }
     private val mapFragment by lazy { childFragmentManager.findFragmentById(R.id.map) as SupportMapFragment? }
 
     private var googleMap: GoogleMap? = null
@@ -46,7 +45,6 @@ class MapsFragment : Fragment() {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
         mapFragment?.getMapAsync { onMapReady(it) }
         permissionModel.locationPermission.observe(requireActivity()) { updateLocationUI(it) }
         locationModel.myLatLng.observe(this.requireActivity()) {

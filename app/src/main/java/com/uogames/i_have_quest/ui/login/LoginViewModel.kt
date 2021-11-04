@@ -4,6 +4,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.uogames.model.GameProvider
+import kotlinx.coroutines.flow.*
 import javax.inject.Inject
 
 class LoginViewModel @Inject constructor(private val game: GameProvider) : ViewModel() {
@@ -13,18 +14,18 @@ class LoginViewModel @Inject constructor(private val game: GameProvider) : ViewM
 	}
 
 
-	private val _username = MutableLiveData("")
-	val username: LiveData<String> = _username
-	private val _usernameError = MutableLiveData(Errors.DEFAULT)
-	val usernameError: LiveData<Errors> = _usernameError
+	private val _username = MutableStateFlow("")
+	val username: StateFlow<String> = _username.asStateFlow()
+	private val _usernameError = MutableStateFlow(Errors.DEFAULT)
+	val usernameError: StateFlow<Errors> = _usernameError.asStateFlow()
 
-	private val _password = MutableLiveData("")
-	val password: LiveData<String> = _password
-	private val _passwordError = MutableLiveData(Errors.DEFAULT)
-	val passwordError: LiveData<Errors> = _passwordError
+	private val _password = MutableStateFlow("")
+	val password: StateFlow<String> = _password.asStateFlow()
+	private val _passwordError = MutableStateFlow(Errors.DEFAULT)
+	val passwordError: StateFlow<Errors> = _passwordError.asStateFlow()
 
-	private val _busy = MutableLiveData(false)
-	val busy: LiveData<Boolean> = _busy
+	private val _busy = MutableStateFlow(false)
+	val busy: StateFlow<Boolean> = _busy.asStateFlow()
 
 	fun setUsername(username: String) {
 		_username.value = username
@@ -42,13 +43,13 @@ class LoginViewModel @Inject constructor(private val game: GameProvider) : ViewM
 		val username = username.value
 		val password = password.value
 
-		if (username.isNullOrEmpty() || username.length < 3) {
+		if (username.length < 3) {
 			_usernameError.value = Errors.SHORT
 		} else if (username.length > 13) {
 			_usernameError.value = Errors.LONG
 		}
 
-		if (password.isNullOrEmpty() || password.length < 5) {
+		if (password.length < 5) {
 			_passwordError.value = Errors.SHORT
 		} else if (password.length > 31) {
 			_passwordError.value = Errors.LONG
@@ -58,7 +59,7 @@ class LoginViewModel @Inject constructor(private val game: GameProvider) : ViewM
 			usernameError.value == Errors.DEFAULT &&
 			passwordError.value == Errors.DEFAULT
 		) {
-			game.login(username.orEmpty(), password.orEmpty()) { mess, code ->
+			game.login(username, password) { mess, code ->
 				result(mess, code)
 				_busy.value = false
 			}

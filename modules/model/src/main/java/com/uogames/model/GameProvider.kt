@@ -2,7 +2,10 @@ package com.uogames.model
 
 import android.content.Context
 import com.uogames.database.DatabaseRepository
+import com.uogames.database.dto.Health
 import com.uogames.network.Repository
+import com.uogames.network.data.dto.Characteristic
+import com.uogames.network.data.dto.Experience
 import com.uogames.network.data.dto.Person
 import kotlinx.coroutines.launch
 
@@ -35,7 +38,7 @@ class GameProvider private constructor(
 			person.updateMyPerson(networkRepository, database).join()
 			characteristic.updateMyCharacteristic(networkRepository, database)
 			experience.updateMyExperience(networkRepository, database)
-			health.updateMyHealth(networkRepository,database)
+			health.updateMyHealth(networkRepository, database)
 		}
 
 
@@ -62,5 +65,23 @@ class GameProvider private constructor(
 
 	fun getPersonById(id: Long, callback: (Person) -> Unit) =
 		person.getPersonById(id, networkRepository, database, callback)
+
+	fun getMyCharacteristic(callback: (Characteristic) -> Unit) =
+		characteristic.getMyCharacteristic(networkRepository, database, callback)
+
+	fun getCharacteristicById(id: Long, callback: (Characteristic) -> Unit) =
+		characteristic.getCharacteristicById(id, networkRepository, database, callback)
+
+	fun getMyExperience(callback: (Experience) -> Unit) =
+		experience.getMyExperience(networkRepository, database, callback)
+
+	fun getExperienceById(id: Long, callback: (Experience) -> Unit) =
+		experience.getExperienceById(id, networkRepository, database, callback)
+
+	fun getMyHealth(callback: (Health) -> Unit) =
+		health.getMyHealth(networkRepository, database, callback)
+
+	fun getHealthById(id: Long, callback: (Health) -> Unit) =
+		health.getHealthById(id, networkRepository, database, callback)
 
 }
