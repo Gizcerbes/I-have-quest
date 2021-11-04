@@ -6,11 +6,20 @@
         <entry key="..\:/androidProgect/I-have-quest/app/src/main/res/layout/activity_main.xml" value="0.34375" />
         <entry key="..\:/androidProgect/I-have-quest/app/src/main/res/layout/fragment_backpack.xml" value="0.34375" />
         <entry key="..\:/androidProgect/I-have-quest/app/src/main/res/layout/fragment_backpack_item.xml" value="0.34375" />
+        <entry key="..\:/androidProgect/I-have-quest/app/src/main/res/layout/fragment_chat_forum.xml" value="0.33177083333333335" />
+        <entry key="..\:/androidProgect/I-have-quest/app/src/main/res/layout/fragment_chat_global.xml" value="0.33177083333333335" />
+        <entry key="..\:/androidProgect/I-have-quest/app/src/main/res/layout/fragment_chat_info.xml" value="0.1" />
+        <entry key="..\:/androidProgect/I-have-quest/app/src/main/res/layout/fragment_chat_item.xml" value="0.33177083333333335" />
+        <entry key="..\:/androidProgect/I-have-quest/app/src/main/res/layout/fragment_chat_messages.xml" value="0.33177083333333335" />
+        <entry key="..\:/androidProgect/I-have-quest/app/src/main/res/layout/fragment_chat_personal.xml" value="0.325" />
+        <entry key="..\:/androidProgect/I-have-quest/app/src/main/res/layout/fragment_chat_select.xml" value="0.33177083333333335" />
         <entry key="..\:/androidProgect/I-have-quest/app/src/main/res/layout/fragment_login.xml" value="0.5546875" />
         <entry key="..\:/androidProgect/I-have-quest/app/src/main/res/layout/fragment_person.xml" value="0.34479166666666666" />
+        <entry key="..\:/androidProgect/I-have-quest/app/src/main/res/layout/fragment_personal_chat.xml" value="0.33177083333333335" />
         <entry key="..\:/androidProgect/I-have-quest/app/src/main/res/layout/fragment_quest.xml" value="0.34375" />
         <entry key="..\:/androidProgect/I-have-quest/app/src/main/res/layout/fragment_registration.xml" value="0.33177083333333335" />
         <entry key="..\:/androidProgect/I-have-quest/app/src/main/res/layout/fragment_second_navigation.xml" value="0.34375" />
+        <entry key="..\:/androidProgect/I-have-quest/app/src/main/res/menu/menu.xml" value="0.23333333333333334" />
       </map>
     </option>
   </component>

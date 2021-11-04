@@ -8,7 +8,7 @@
 
     <fragment
         android:id="@+id/navigation_map"
-        android:name="com.uogames.i_have_quest.ui.MapsFragment"
+        android:name="com.uogames.i_have_quest.ui.maps.MapsFragment"
         android:label="MapsFragment"
         />
 
@@ -20,22 +20,23 @@
 
     <fragment
         android:id="@+id/navigation_backpack"
-        android:name="com.uogames.i_have_quest.ui.BackpackFragment"
+        android:name="com.uogames.i_have_quest.ui.backpack.BackpackFragment"
         android:label="BackpackFragment"
         tools:layout="@layout/fragment_backpack"
         />
 
     <fragment
         android:id="@+id/navigation_quest"
-        android:name="com.uogames.i_have_quest.ui.QuestFragment"
+        android:name="com.uogames.i_have_quest.ui.quest.QuestFragment"
         android:label="QuestFragment"
         tools:layout="@layout/fragment_quest"
         />
+
     <fragment
         android:id="@+id/navigation_chat"
-        android:name="com.uogames.i_have_quest.ui.ChatMessagesFragment"
+        android:name="com.uogames.i_have_quest.ui.chat.ChatInfoFragment"
         android:label="ChatMessagesFragment"
-        tools:layout="@layout/fragment_chat_messages"
+        tools:layout="@layout/fragment_chat_info"
         />
 
 

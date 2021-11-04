@@ -1,7 +1,6 @@
-package com.uogames.i_have_quest.ui.second_navigation
+package com.uogames.i_have_quest.ui.navigation
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
