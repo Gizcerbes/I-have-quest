@@ -14,15 +14,10 @@ internal class AccessProvider : Provider() {
 		callback: (message: String, code: Int) -> Unit
 	) = ioScope.launch {
 		when (access.status.type.value) {
-			200 -> access.any?.apply {
-				mainScope.launch { callback(access.status.message, access.status.type.value) }
-				database.saveAccessKey(accessKey)
-			}
-			401 -> {
-				database.clear()
-				mainScope.launch { callback(access.status.message, access.status.type.value) }
-			}
+			200 -> access.any?.apply { database.saveAccessKey(accessKey) }
+			401 -> database.clear()
 		}
+		mainScope.launch { callback(access.status.message, access.status.type.value) }
 	}
 
 	fun isAccess(

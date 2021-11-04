@@ -30,7 +30,7 @@
 
     <fragment
         android:id="@+id/secondNavigationFragment"
-        android:name="com.uogames.i_have_quest.ui.second_navigation.BottomNavigationFragment"
+        android:name="com.uogames.i_have_quest.ui.navigation.BottomNavigationFragment"
         android:label="SecondNavigationFragment"
         tools:layout="@layout/fragment_second_navigation" />
 
