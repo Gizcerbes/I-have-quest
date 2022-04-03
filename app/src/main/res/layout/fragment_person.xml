@@ -14,330 +14,57 @@
 		<LinearLayout
 			android:layout_width="match_parent"
 			android:layout_height="0dp"
+			android:layout_marginStart="7dp"
+			android:layout_marginEnd="7dp"
 			android:orientation="vertical">
 
-			<include layout="@layout/card_personal_info"
-				android:layout_marginStart="14dp"
-				android:layout_marginEnd="14dp"
-				android:layout_marginTop="7dp"
-				android:layout_marginBottom="7dp"
+			<include
+				layout="@layout/card_personal_info"
+
+				android:layout_width="match_parent"
 				android:layout_height="wrap_content"
-				android:layout_width="match_parent"/>
+				android:layout_marginTop="7dp"
+				android:layout_marginBottom="7dp" />
 
 			<include
 				layout="@layout/card_characteristic"
-				android:layout_marginStart="14dp"
-				android:layout_marginEnd="14dp"
-				android:layout_marginBottom="7dp"
+				android:layout_width="match_parent"
 				android:layout_height="wrap_content"
-				android:layout_width="match_parent" />
+				android:layout_marginBottom="7dp" />
+
+			<include
+				layout="@layout/card_fight_experience"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:layout_marginBottom="7dp" />
 
 			<androidx.constraintlayout.widget.ConstraintLayout
 				android:layout_width="match_parent"
 				android:layout_height="wrap_content"
-				android:layout_margin="16dp">
+				android:layout_marginBottom="7dp">
 
-				<TextView
-					android:id="@+id/tv_style"
-					android:layout_width="match_parent"
+				<com.google.android.material.card.MaterialCardView
+					style="@style/Theme.Card"
+					android:layout_width="wrap_content"
 					android:layout_height="wrap_content"
-					android:background="@color/dimgray"
-					android:gravity="center"
-					android:text="@string/fight_style"
-					android:textSize="20sp"
-					app:layout_constraintTop_toTopOf="parent" />
-
-
-				<GridLayout
-					android:layout_width="match_parent"
-					android:layout_height="wrap_content"
-					android:layout_marginTop="7dp"
-					android:alignmentMode="alignBounds"
-					android:columnCount="7"
-					android:orientation="horizontal"
-					android:useDefaultMargins="true"
-					app:layout_constraintEnd_toEndOf="parent"
+					android:clickable="true"
 					app:layout_constraintStart_toStartOf="parent"
-					app:layout_constraintTop_toBottomOf="@id/tv_style">
+					app:layout_constraintTop_toTopOf="parent">
 
-
-					<LinearLayout
+					<TextView
 						android:layout_width="wrap_content"
 						android:layout_height="wrap_content"
-						android:layout_columnWeight="1"
-						android:layout_gravity="fill"
-						android:orientation="horizontal">
+						android:layout_margin="7dp"
+						android:text="@string/equipment"
+						android:textSize="20sp"
+						/>
 
-						<ImageView
-							android:layout_width="20dp"
-							android:layout_height="20dp"
-							android:src="@drawable/normal"
-							app:layout_constraintStart_toStartOf="parent"
-							app:layout_constraintTop_toTopOf="parent" />
-
-						<TextView
-							android:layout_width="wrap_content"
-							android:layout_height="wrap_content"
-							android:layout_marginStart="7dp"
-							android:text="0" />
-
-					</LinearLayout>
-
-					<LinearLayout
-						android:layout_width="wrap_content"
-						android:layout_height="wrap_content"
-						android:layout_columnWeight="1"
-						android:layout_gravity="fill"
-						android:orientation="horizontal">
-
-						<ImageView
-							android:layout_width="20dp"
-							android:layout_height="20dp"
-							android:src="@drawable/wood"
-							app:layout_constraintStart_toStartOf="parent"
-							app:layout_constraintTop_toTopOf="parent" />
-
-						<TextView
-							android:layout_width="wrap_content"
-							android:layout_height="wrap_content"
-							android:layout_marginStart="7dp"
-							android:text="0" />
-					</LinearLayout>
-
-					<LinearLayout
-						android:layout_width="wrap_content"
-						android:layout_height="wrap_content"
-						android:layout_columnWeight="1"
-						android:layout_gravity="fill"
-						android:orientation="horizontal">
-
-						<ImageView
-							android:layout_width="20dp"
-							android:layout_height="20dp"
-							android:src="@drawable/metal"
-							app:layout_constraintStart_toStartOf="parent"
-							app:layout_constraintTop_toTopOf="parent" />
-
-						<TextView
-							android:layout_width="wrap_content"
-							android:layout_height="wrap_content"
-							android:layout_marginStart="7dp"
-							android:text="0" />
-					</LinearLayout>
-
-					<LinearLayout
-						android:layout_width="wrap_content"
-						android:layout_height="wrap_content"
-						android:layout_columnWeight="1"
-						android:layout_gravity="fill"
-						android:orientation="horizontal">
-
-						<ImageView
-							android:layout_width="20dp"
-							android:layout_height="20dp"
-							android:src="@drawable/poison"
-							app:layout_constraintStart_toStartOf="parent"
-							app:layout_constraintTop_toTopOf="parent" />
-
-						<TextView
-							android:layout_width="wrap_content"
-							android:layout_height="wrap_content"
-							android:layout_marginStart="7dp"
-							android:text="0" />
-					</LinearLayout>
-
-					<LinearLayout
-						android:layout_width="wrap_content"
-						android:layout_height="wrap_content"
-						android:layout_columnWeight="1"
-						android:layout_gravity="fill"
-						android:orientation="horizontal">
-
-						<ImageView
-							android:layout_width="20dp"
-							android:layout_height="20dp"
-							android:src="@drawable/stone"
-							app:layout_constraintStart_toStartOf="parent"
-							app:layout_constraintTop_toTopOf="parent" />
-
-						<TextView
-							android:layout_width="wrap_content"
-							android:layout_height="wrap_content"
-							android:layout_marginStart="7dp"
-							android:text="0" />
-					</LinearLayout>
-
-					<LinearLayout
-						android:layout_width="wrap_content"
-						android:layout_height="wrap_content"
-						android:layout_columnWeight="1"
-						android:layout_gravity="fill"
-						android:orientation="horizontal">
-
-						<ImageView
-							android:layout_width="20dp"
-							android:layout_height="20dp"
-							android:src="@drawable/fire"
-							app:layout_constraintStart_toStartOf="parent"
-							app:layout_constraintTop_toTopOf="parent" />
-
-						<TextView
-							android:layout_width="wrap_content"
-							android:layout_height="wrap_content"
-							android:layout_marginStart="7dp"
-							android:text="0" />
-					</LinearLayout>
-
-
-					<LinearLayout
-						android:layout_width="wrap_content"
-						android:layout_height="wrap_content"
-						android:layout_columnWeight="1"
-						android:layout_gravity="fill"
-						android:orientation="horizontal">
-
-						<ImageView
-							android:layout_width="20dp"
-							android:layout_height="20dp"
-							android:src="@drawable/water"
-							app:layout_constraintStart_toStartOf="parent"
-							app:layout_constraintTop_toTopOf="parent" />
-
-						<TextView
-							android:layout_width="wrap_content"
-							android:layout_height="wrap_content"
-							android:layout_marginStart="7dp"
-							android:text="0" />
-					</LinearLayout>
-
-					<LinearLayout
-						android:layout_width="wrap_content"
-						android:layout_height="wrap_content"
-						android:layout_columnWeight="1"
-						android:layout_gravity="fill"
-						android:orientation="horizontal">
-
-						<ImageView
-							android:layout_width="20dp"
-							android:layout_height="20dp"
-							android:src="@drawable/electric"
-							app:layout_constraintStart_toStartOf="parent"
-							app:layout_constraintTop_toTopOf="parent" />
-
-						<TextView
-							android:layout_width="wrap_content"
-							android:layout_height="wrap_content"
-							android:layout_marginStart="7dp"
-							android:text="0" />
-					</LinearLayout>
-
-
-					<LinearLayout
-						android:layout_width="wrap_content"
-						android:layout_columnWeight="1"
-						android:layout_gravity="fill"
-						android:orientation="horizontal">
-
-						<ImageView
-							android:layout_width="20dp"
-							android:layout_height="20dp"
-							android:src="@drawable/ice"
-							app:layout_constraintStart_toStartOf="parent"
-							app:layout_constraintTop_toTopOf="parent" />
-
-						<TextView
-							android:layout_width="wrap_content"
-							android:layout_height="wrap_content"
-							android:layout_marginStart="7dp"
-							android:text="0" />
-					</LinearLayout>
-
-					<LinearLayout
-						android:layout_width="wrap_content"
-						android:layout_columnWeight="1"
-						android:layout_gravity="fill"
-						android:orientation="horizontal">
-
-						<ImageView
-							android:layout_width="20dp"
-							android:layout_height="20dp"
-							android:src="@drawable/light"
-							app:layout_constraintStart_toStartOf="parent"
-							app:layout_constraintTop_toTopOf="parent" />
-
-						<TextView
-							android:layout_width="wrap_content"
-							android:layout_height="wrap_content"
-							android:layout_marginStart="7dp"
-							android:text="0" />
-					</LinearLayout>
-
-					<LinearLayout
-						android:layout_width="wrap_content"
-						android:layout_columnWeight="1"
-						android:layout_gravity="fill"
-						android:orientation="horizontal">
-
-						<ImageView
-							android:layout_width="20dp"
-							android:layout_height="20dp"
-							android:src="@drawable/dark"
-							app:layout_constraintStart_toStartOf="parent"
-							app:layout_constraintTop_toTopOf="parent" />
-
-						<TextView
-							android:layout_width="wrap_content"
-							android:layout_height="wrap_content"
-							android:layout_marginStart="7dp"
-							android:text="0" />
-					</LinearLayout>
-
-					<LinearLayout
-						android:layout_width="wrap_content"
-						android:layout_columnWeight="1"
-						android:layout_gravity="fill"
-						android:orientation="horizontal">
-
-						<ImageView
-							android:layout_width="20dp"
-							android:layout_height="20dp"
-							android:src="@drawable/fly"
-							app:layout_constraintStart_toStartOf="parent"
-							app:layout_constraintTop_toTopOf="parent" />
-
-						<TextView
-							android:layout_width="wrap_content"
-							android:layout_height="wrap_content"
-							android:layout_marginStart="7dp"
-							android:text="0" />
-					</LinearLayout>
-
-
-				</GridLayout>
+				</com.google.android.material.card.MaterialCardView>
 
 
 			</androidx.constraintlayout.widget.ConstraintLayout>
-
-			<androidx.constraintlayout.widget.ConstraintLayout
-				android:layout_width="match_parent"
-				android:layout_height="wrap_content"
-				android:layout_margin="16dp">
-
-				<Button
-					android:id="@+id/btn_equipment"
-					style="@style/Widget.MaterialComponents.Button.OutlinedButton"
-					android:layout_width="0dp"
-					android:layout_height="wrap_content"
-					android:text="@string/equipment"
-					app:layout_constraintStart_toStartOf="parent"
-					app:layout_constraintTop_toTopOf="parent" />
-
-
-			</androidx.constraintlayout.widget.ConstraintLayout>
-
 
 		</LinearLayout>
-
 
 	</ScrollView>
 

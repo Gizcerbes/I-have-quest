@@ -46,4 +46,5 @@
     <string name="errors_password_long">Password is long</string>
     <string name="password_mismatch">Password mismatch</string>
 	<string name="fight_style">Fight Style</string>
+	<string name="fight_experience">Fight Experience</string>
 </resources>

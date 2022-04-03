@@ -2,13 +2,9 @@
 <com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
 	xmlns:app="http://schemas.android.com/apk/res-auto"
 	xmlns:tools="http://schemas.android.com/tools"
+	style="@style/Theme.Card"
 	android:layout_width="match_parent"
-	android:layout_height="wrap_content"
-	app:cardBackgroundColor="@color/linen"
-	app:cardCornerRadius="7dp"
-	app:contentPadding="7dp"
-	app:strokeColor="@color/redwood"
-	app:strokeWidth="7dp">
+	android:layout_height="wrap_content">
 
 
 	<androidx.constraintlayout.widget.ConstraintLayout
@@ -33,7 +29,8 @@
 			android:layout_marginTop="7dp"
 			android:src="@drawable/ic_fist"
 			app:layout_constraintStart_toStartOf="parent"
-			app:layout_constraintTop_toBottomOf="@id/tv_characteristics" />
+			app:layout_constraintTop_toBottomOf="@id/tv_characteristics"
+			app:tint="?android:textColor" />
 
 		<TextView
 			android:id="@+id/tv_force_text"
@@ -61,7 +58,8 @@
 			android:layout_marginTop="7dp"
 			android:src="@drawable/ic_shield"
 			app:layout_constraintStart_toStartOf="parent"
-			app:layout_constraintTop_toBottomOf="@id/iv_force" />
+			app:layout_constraintTop_toBottomOf="@id/iv_force"
+			app:tint="?android:textColor" />
 
 		<TextView
 			android:id="@+id/tv_defense_text"
@@ -89,7 +87,8 @@
 			android:layout_marginTop="7dp"
 			android:src="@drawable/ic_shoes"
 			app:layout_constraintStart_toStartOf="parent"
-			app:layout_constraintTop_toBottomOf="@id/iv_defense" />
+			app:layout_constraintTop_toBottomOf="@id/iv_defense"
+			app:tint="?android:textColor" />
 
 		<TextView
 			android:id="@+id/tv_agility_text"
@@ -117,7 +116,8 @@
 			android:layout_marginTop="7dp"
 			android:src="@drawable/ic_baseline_favorite_24"
 			app:layout_constraintStart_toStartOf="parent"
-			app:layout_constraintTop_toBottomOf="@id/iv_agility" />
+			app:layout_constraintTop_toBottomOf="@id/iv_agility"
+			app:tint="?android:textColor" />
 
 		<TextView
 			android:id="@+id/tv_health_text"
@@ -145,7 +145,8 @@
 			android:layout_marginTop="7dp"
 			android:src="@drawable/ic_goal"
 			app:layout_constraintStart_toStartOf="parent"
-			app:layout_constraintTop_toBottomOf="@id/iv_health" />
+			app:layout_constraintTop_toBottomOf="@id/iv_health"
+			app:tint="?android:textColor" />
 
 		<TextView
 			android:id="@+id/tv_experience_text"
