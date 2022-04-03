@@ -16,7 +16,7 @@ class MainActivity : DaggerAppCompatActivity() {
         const val PERMISSIONS_REQUEST_ACCESS_FINE_LOCATION = 1
     }
 
-    private val permissionModel by lazy { ViewModelProvider(this).get(PermissionModel::class.java) }
+    private val permissionModel by lazy { ViewModelProvider(this)[PermissionModel::class.java] }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

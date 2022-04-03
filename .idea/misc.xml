@@ -3,18 +3,21 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/androidProgect/I-have-quest/app/src/main/res/drawable/chat_message.xml" value="0.5708333333333333" />
         <entry key="..\:/androidProgect/I-have-quest/app/src/main/res/layout/activity_main.xml" value="0.34375" />
+        <entry key="..\:/androidProgect/I-have-quest/app/src/main/res/layout/card_personal_info.xml" value="0.29375" />
         <entry key="..\:/androidProgect/I-have-quest/app/src/main/res/layout/fragment_backpack.xml" value="0.34375" />
         <entry key="..\:/androidProgect/I-have-quest/app/src/main/res/layout/fragment_backpack_item.xml" value="0.34375" />
+        <entry key="..\:/androidProgect/I-have-quest/app/src/main/res/layout/fragment_characteristic.xml" value="0.29375" />
         <entry key="..\:/androidProgect/I-have-quest/app/src/main/res/layout/fragment_chat_forum.xml" value="0.33177083333333335" />
         <entry key="..\:/androidProgect/I-have-quest/app/src/main/res/layout/fragment_chat_global.xml" value="0.33177083333333335" />
-        <entry key="..\:/androidProgect/I-have-quest/app/src/main/res/layout/fragment_chat_info.xml" value="0.1" />
-        <entry key="..\:/androidProgect/I-have-quest/app/src/main/res/layout/fragment_chat_item.xml" value="0.33177083333333335" />
+        <entry key="..\:/androidProgect/I-have-quest/app/src/main/res/layout/fragment_chat_info.xml" value="0.22395833333333334" />
+        <entry key="..\:/androidProgect/I-have-quest/app/src/main/res/layout/fragment_chat_item.xml" value="0.5546875" />
         <entry key="..\:/androidProgect/I-have-quest/app/src/main/res/layout/fragment_chat_messages.xml" value="0.33177083333333335" />
         <entry key="..\:/androidProgect/I-have-quest/app/src/main/res/layout/fragment_chat_personal.xml" value="0.325" />
         <entry key="..\:/androidProgect/I-have-quest/app/src/main/res/layout/fragment_chat_select.xml" value="0.33177083333333335" />
         <entry key="..\:/androidProgect/I-have-quest/app/src/main/res/layout/fragment_login.xml" value="0.5546875" />
-        <entry key="..\:/androidProgect/I-have-quest/app/src/main/res/layout/fragment_person.xml" value="0.34479166666666666" />
+        <entry key="..\:/androidProgect/I-have-quest/app/src/main/res/layout/fragment_person.xml" value="0.25239071038251365" />
         <entry key="..\:/androidProgect/I-have-quest/app/src/main/res/layout/fragment_personal_chat.xml" value="0.33177083333333335" />
         <entry key="..\:/androidProgect/I-have-quest/app/src/main/res/layout/fragment_quest.xml" value="0.34375" />
         <entry key="..\:/androidProgect/I-have-quest/app/src/main/res/layout/fragment_registration.xml" value="0.33177083333333335" />

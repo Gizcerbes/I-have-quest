@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:app="http://schemas.android.com/apk/res-auto"
+	xmlns:tools="http://schemas.android.com/tools"
+	android:layout_width="match_parent"
+	android:layout_height="wrap_content"
+	app:cardBackgroundColor="@color/linen"
+	app:cardCornerRadius="7dp"
+	app:contentPadding="7dp"
+	app:strokeColor="@color/redwood"
+	app:strokeWidth="7dp">
+
+
+	<androidx.constraintlayout.widget.ConstraintLayout
+		android:layout_width="match_parent"
+		android:layout_height="match_parent"
+		android:layout_marginBottom="7dp">
+
+		<TextView
+			android:id="@+id/tv_characteristics"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:gravity="center"
+			android:text="@string/characteristics"
+			android:textSize="20sp"
+			app:layout_constraintTop_toTopOf="parent" />
+
+		<ImageView
+			android:id="@+id/iv_force"
+			android:layout_width="20dp"
+			android:layout_height="20dp"
+			android:layout_marginStart="7dp"
+			android:layout_marginTop="7dp"
+			android:src="@drawable/ic_fist"
+			app:layout_constraintStart_toStartOf="parent"
+			app:layout_constraintTop_toBottomOf="@id/tv_characteristics" />
+
+		<TextView
+			android:id="@+id/tv_force_text"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_marginStart="7dp"
+			android:text="@string/force"
+			app:layout_constraintStart_toEndOf="@id/iv_force"
+			app:layout_constraintTop_toTopOf="@id/iv_force" />
+
+		<TextView
+			android:id="@+id/tv_force"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_marginStart="7dp"
+			app:layout_constraintStart_toEndOf="@id/tv_force_text"
+			app:layout_constraintTop_toTopOf="@id/tv_force_text"
+			tools:text="10" />
+
+		<ImageView
+			android:id="@+id/iv_defense"
+			android:layout_width="20dp"
+			android:layout_height="20dp"
+			android:layout_marginStart="7dp"
+			android:layout_marginTop="7dp"
+			android:src="@drawable/ic_shield"
+			app:layout_constraintStart_toStartOf="parent"
+			app:layout_constraintTop_toBottomOf="@id/iv_force" />
+
+		<TextView
+			android:id="@+id/tv_defense_text"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_marginStart="7dp"
+			android:text="@string/defense"
+			app:layout_constraintStart_toEndOf="@id/iv_defense"
+			app:layout_constraintTop_toTopOf="@id/iv_defense" />
+
+		<TextView
+			android:id="@+id/tv_defence"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_marginStart="7dp"
+			app:layout_constraintStart_toEndOf="@id/tv_defense_text"
+			app:layout_constraintTop_toTopOf="@id/tv_defense_text"
+			tools:text="10" />
+
+		<ImageView
+			android:id="@+id/iv_agility"
+			android:layout_width="20dp"
+			android:layout_height="20dp"
+			android:layout_marginStart="7dp"
+			android:layout_marginTop="7dp"
+			android:src="@drawable/ic_shoes"
+			app:layout_constraintStart_toStartOf="parent"
+			app:layout_constraintTop_toBottomOf="@id/iv_defense" />
+
+		<TextView
+			android:id="@+id/tv_agility_text"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_marginStart="7dp"
+			android:text="@string/agility"
+			app:layout_constraintStart_toEndOf="@id/iv_agility"
+			app:layout_constraintTop_toTopOf="@id/iv_agility" />
+
+		<TextView
+			android:id="@+id/tv_agility"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_marginStart="7dp"
+			app:layout_constraintStart_toEndOf="@id/tv_agility_text"
+			app:layout_constraintTop_toTopOf="@id/tv_agility_text"
+			tools:text="10" />
+
+		<ImageView
+			android:id="@+id/iv_health"
+			android:layout_width="20dp"
+			android:layout_height="20dp"
+			android:layout_marginStart="7dp"
+			android:layout_marginTop="7dp"
+			android:src="@drawable/ic_baseline_favorite_24"
+			app:layout_constraintStart_toStartOf="parent"
+			app:layout_constraintTop_toBottomOf="@id/iv_agility" />
+
+		<TextView
+			android:id="@+id/tv_health_text"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_marginStart="7dp"
+			android:text="@string/health"
+			app:layout_constraintStart_toEndOf="@id/iv_health"
+			app:layout_constraintTop_toTopOf="@id/iv_health" />
+
+		<TextView
+			android:id="@+id/tv_health"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_marginStart="7dp"
+			app:layout_constraintStart_toEndOf="@id/tv_health_text"
+			app:layout_constraintTop_toTopOf="@id/tv_health_text"
+			tools:text="10 (100 hp)" />
+
+		<ImageView
+			android:id="@+id/iv_experience"
+			android:layout_width="20dp"
+			android:layout_height="20dp"
+			android:layout_marginStart="7dp"
+			android:layout_marginTop="7dp"
+			android:src="@drawable/ic_goal"
+			app:layout_constraintStart_toStartOf="parent"
+			app:layout_constraintTop_toBottomOf="@id/iv_health" />
+
+		<TextView
+			android:id="@+id/tv_experience_text"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_marginStart="7dp"
+			android:text="@string/experience"
+			app:layout_constraintStart_toEndOf="@id/iv_experience"
+			app:layout_constraintTop_toTopOf="@id/iv_experience" />
+
+		<TextView
+			android:id="@+id/tv_experience"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_marginStart="7dp"
+			app:layout_constraintStart_toEndOf="@id/tv_experience_text"
+			app:layout_constraintTop_toTopOf="@id/tv_experience_text"
+			tools:text="1/100" />
+	</androidx.constraintlayout.widget.ConstraintLayout>
+
+</com.google.android.material.card.MaterialCardView>

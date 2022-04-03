@@ -5,9 +5,10 @@
     android:layout_height="match_parent">
 
 
-    <TextView
+    <androidx.recyclerview.widget.RecyclerView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/person"/>
+        tools:listitem="@layout/fragment_chat_item"
+        />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

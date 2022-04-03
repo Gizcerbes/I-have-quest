@@ -11,4 +11,8 @@
     <color name="transparent">#00FFFFFF</color>
     <color name="gray">#808080</color>
     <color name="dimgray">#696969</color>
+
+    <color name="redwood">#5b342e</color>
+    <color name="linen">#faf0e6</color>
+
 </resources>
