@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:app="http://schemas.android.com/apk/res-auto"
+	xmlns:tools="http://schemas.android.com/tools"
+	style="@style/Theme.Card"
+	android:layout_width="match_parent"
+	android:layout_height="wrap_content"
+	android:layout_marginBottom="7dp">
+
+	<androidx.constraintlayout.widget.ConstraintLayout
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:layout_margin="7dp">
+
+		<ImageView
+			android:id="@+id/iv_equipment"
+			android:layout_width="50dp"
+			android:layout_height="50dp"
+			android:src="@drawable/wooden_stick"
+			app:layout_constraintStart_toStartOf="parent"
+			app:layout_constraintTop_toTopOf="parent" />
+
+		<TextView
+			android:id="@+id/tv_item_name"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_marginStart="17dp"
+			android:textSize="20sp"
+			app:layout_constraintStart_toEndOf="@id/iv_equipment"
+			app:layout_constraintTop_toTopOf="@id/iv_equipment"
+			tools:text="wooden stick" />
+
+		<ImageView
+			android:id="@+id/im_first_element"
+			android:layout_width="20dp"
+			android:layout_height="20dp"
+			android:layout_marginStart="7dp"
+			android:src="@drawable/normal"
+			app:layout_constraintBottom_toBottomOf="@id/tv_item_name"
+			app:layout_constraintStart_toEndOf="@id/tv_item_name"
+			app:layout_constraintTop_toTopOf="@id/tv_item_name" />
+
+		<ImageView
+			android:id="@+id/in_second_element"
+			android:layout_width="20dp"
+			android:layout_height="20dp"
+			android:layout_marginStart="7dp"
+			android:src="@drawable/wood"
+			app:layout_constraintBottom_toBottomOf="@id/im_first_element"
+			app:layout_constraintStart_toEndOf="@id/im_first_element"
+			app:layout_constraintTop_toTopOf="@id/im_first_element" />
+
+		<ImageView
+			android:id="@+id/damage"
+			android:layout_width="20dp"
+			android:layout_height="20dp"
+			android:layout_marginStart="17dp"
+			android:src="@drawable/axe"
+			app:layout_constraintBottom_toBottomOf="@id/iv_equipment"
+			app:layout_constraintStart_toEndOf="@id/iv_equipment" />
+
+		<TextView
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_marginStart="7dp"
+			app:layout_constraintStart_toEndOf="@id/damage"
+			app:layout_constraintTop_toTopOf="@id/damage"
+			tools:text="7-10" />
+
+
+	</androidx.constraintlayout.widget.ConstraintLayout>
+
+</com.google.android.material.card.MaterialCardView>
