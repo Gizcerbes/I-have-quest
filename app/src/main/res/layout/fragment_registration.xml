@@ -14,7 +14,9 @@
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
             app:navigationIcon="@drawable/ic_baseline_arrow_back_24"
-            app:title="Registration" />
+
+            app:title="Registration"
+            style="@style/Theme.IHaveQuest.ToolBar"/>
 
     </com.google.android.material.appbar.AppBarLayout>
 
@@ -124,16 +126,39 @@
             </com.google.android.material.textfield.TextInputLayout>
 
 
-            <Button
+            <com.google.android.material.card.MaterialCardView
                 android:id="@+id/btn_registration"
-                style="@style/Widget.MaterialComponents.Button"
+                style="@style/Theme.IHaveQuest.CardView.Button"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="7dp"
                 android:text="@string/registration"
                 app:layout_constraintEnd_toEndOf="@id/ti_password_repeat"
                 app:layout_constraintStart_toStartOf="@id/ti_password_repeat"
-                app:layout_constraintTop_toBottomOf="@+id/ti_password_repeat" />
+                app:layout_constraintTop_toBottomOf="@+id/ti_password_repeat">
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="@string/registration"
+                    android:textSize="20sp"
+                    />
+
+            </com.google.android.material.card.MaterialCardView>
+
+
+<!--            <Button-->
+<!--                android:id="@+id/btn_registration"-->
+<!--                style="@style/Widget.MaterialComponents.Button"-->
+<!--                android:layout_width="0dp"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginTop="7dp"-->
+<!--                android:text="@string/registration"-->
+<!--                app:layout_constraintEnd_toEndOf="@id/ti_password_repeat"-->
+<!--                app:layout_constraintStart_toStartOf="@id/ti_password_repeat"-->
+<!--                app:layout_constraintTop_toBottomOf="@+id/ti_password_repeat" />-->
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>

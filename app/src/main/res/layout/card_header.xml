@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:app="http://schemas.android.com/apk/res-auto"
+	xmlns:tools="http://schemas.android.com/tools"
+	android:layout_width="match_parent"
+	android:layout_height="wrap_content"
+	android:background="@drawable/header">
+
+	<androidx.constraintlayout.widget.ConstraintLayout
+		android:id="@+id/constraintLayout"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		app:layout_constraintTop_toTopOf="parent">
+
+		<ImageView
+			android:id="@+id/image_coins"
+			android:layout_width="20dp"
+			android:layout_height="20dp"
+			android:layout_marginStart="7dp"
+			android:src="@drawable/gold"
+			app:layout_constraintBottom_toTopOf="@id/divider"
+			app:layout_constraintStart_toStartOf="parent"
+			app:layout_constraintTop_toTopOf="parent" />
+
+		<TextView
+			android:id="@+id/text_coins"
+			android:layout_width="20dp"
+			android:layout_height="20dp"
+			android:layout_marginStart="7dp"
+			app:layout_constraintStart_toEndOf="@+id/image_coins"
+			app:layout_constraintTop_toTopOf="parent"
+			tools:text="0" />
+
+		<com.google.android.material.divider.MaterialDivider
+			android:id="@+id/divider"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			app:dividerColor="@color/redwood"
+			app:dividerThickness="1dp"
+			app:layout_constraintBottom_toBottomOf="parent" />
+
+	</androidx.constraintlayout.widget.ConstraintLayout>
+
+</LinearLayout>

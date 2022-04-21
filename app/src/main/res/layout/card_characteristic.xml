@@ -2,7 +2,7 @@
 <com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
 	xmlns:app="http://schemas.android.com/apk/res-auto"
 	xmlns:tools="http://schemas.android.com/tools"
-	style="@style/Theme.Card"
+	style="@style/Theme.IHaveQuest.CardView"
 	android:layout_width="match_parent"
 	android:layout_height="wrap_content">
 
@@ -19,6 +19,7 @@
 			android:gravity="center"
 			android:text="@string/characteristics"
 			android:textSize="20sp"
+			android:textColor="@color/black"
 			app:layout_constraintTop_toTopOf="parent" />
 
 		<ImageView

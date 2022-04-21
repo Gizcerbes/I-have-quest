@@ -4,35 +4,41 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/androidProgect/I-have-quest/app/src/main/res/drawable/chat_message.xml" value="0.5708333333333333" />
+        <entry key="..\:/androidProgect/I-have-quest/app/src/main/res/drawable/header.xml" value="0.285" />
         <entry key="..\:/androidProgect/I-have-quest/app/src/main/res/drawable/ic_fist.xml" value="0.2295" />
         <entry key="..\:/androidProgect/I-have-quest/app/src/main/res/drawable/ic_globe.xml" value="0.2295" />
         <entry key="..\:/androidProgect/I-have-quest/app/src/main/res/drawable/ic_goal.xml" value="0.2295" />
         <entry key="..\:/androidProgect/I-have-quest/app/src/main/res/drawable/ic_power.xml" value="0.2295" />
         <entry key="..\:/androidProgect/I-have-quest/app/src/main/res/drawable/ic_shield.xml" value="0.2295" />
         <entry key="..\:/androidProgect/I-have-quest/app/src/main/res/drawable/ic_shoes.xml" value="0.2295" />
-        <entry key="..\:/androidProgect/I-have-quest/app/src/main/res/layout/activity_main.xml" value="0.34375" />
-        <entry key="..\:/androidProgect/I-have-quest/app/src/main/res/layout/card_characteristic.xml" value="0.29375" />
+        <entry key="..\:/androidProgect/I-have-quest/app/src/main/res/drawable/myrect.xml" value="0.117" />
+        <entry key="..\:/androidProgect/I-have-quest/app/src/main/res/layout-v28/card_equipment.xml" value="0.5546875" />
+        <entry key="..\:/androidProgect/I-have-quest/app/src/main/res/layout/activity_main.xml" value="0.2326388888888889" />
+        <entry key="..\:/androidProgect/I-have-quest/app/src/main/res/layout/card_characteristic.xml" value="0.2326388888888889" />
         <entry key="..\:/androidProgect/I-have-quest/app/src/main/res/layout/card_equipment.xml" value="0.2326388888888889" />
-        <entry key="..\:/androidProgect/I-have-quest/app/src/main/res/layout/card_fight_experience.xml" value="0.29375" />
-        <entry key="..\:/androidProgect/I-have-quest/app/src/main/res/layout/card_personal_info.xml" value="0.29375" />
+        <entry key="..\:/androidProgect/I-have-quest/app/src/main/res/layout/card_fight_experience.xml" value="0.2326388888888889" />
+        <entry key="..\:/androidProgect/I-have-quest/app/src/main/res/layout/card_header.xml" value="0.3638888888888889" />
+        <entry key="..\:/androidProgect/I-have-quest/app/src/main/res/layout/card_personal_info.xml" value="0.2326388888888889" />
+        <entry key="..\:/androidProgect/I-have-quest/app/src/main/res/layout/card_resourses.xml" value="0.10339506172839506" />
         <entry key="..\:/androidProgect/I-have-quest/app/src/main/res/layout/fragment_backpack.xml" value="0.2326388888888889" />
-        <entry key="..\:/androidProgect/I-have-quest/app/src/main/res/layout/fragment_backpack_item.xml" value="0.34375" />
+        <entry key="..\:/androidProgect/I-have-quest/app/src/main/res/layout/fragment_backpack_item.xml" value="0.2326388888888889" />
         <entry key="..\:/androidProgect/I-have-quest/app/src/main/res/layout/fragment_characteristic.xml" value="0.29375" />
-        <entry key="..\:/androidProgect/I-have-quest/app/src/main/res/layout/fragment_chat_forum.xml" value="0.33177083333333335" />
+        <entry key="..\:/androidProgect/I-have-quest/app/src/main/res/layout/fragment_chat_forum.xml" value="0.2326388888888889" />
         <entry key="..\:/androidProgect/I-have-quest/app/src/main/res/layout/fragment_chat_global.xml" value="0.33177083333333335" />
         <entry key="..\:/androidProgect/I-have-quest/app/src/main/res/layout/fragment_chat_info.xml" value="0.22395833333333334" />
         <entry key="..\:/androidProgect/I-have-quest/app/src/main/res/layout/fragment_chat_item.xml" value="0.5546875" />
         <entry key="..\:/androidProgect/I-have-quest/app/src/main/res/layout/fragment_chat_messages.xml" value="0.33177083333333335" />
         <entry key="..\:/androidProgect/I-have-quest/app/src/main/res/layout/fragment_chat_personal.xml" value="0.325" />
         <entry key="..\:/androidProgect/I-have-quest/app/src/main/res/layout/fragment_chat_select.xml" value="0.33177083333333335" />
-        <entry key="..\:/androidProgect/I-have-quest/app/src/main/res/layout/fragment_equipment.xml" value="0.416015625" />
-        <entry key="..\:/androidProgect/I-have-quest/app/src/main/res/layout/fragment_login.xml" value="0.5546875" />
+        <entry key="..\:/androidProgect/I-have-quest/app/src/main/res/layout/fragment_equipment.xml" value="0.2326388888888889" />
+        <entry key="..\:/androidProgect/I-have-quest/app/src/main/res/layout/fragment_login.xml" value="0.3104247104247104" />
+        <entry key="..\:/androidProgect/I-have-quest/app/src/main/res/layout/fragment_maps.xml" value="0.2326388888888889" />
         <entry key="..\:/androidProgect/I-have-quest/app/src/main/res/layout/fragment_person.xml" value="0.20625" />
         <entry key="..\:/androidProgect/I-have-quest/app/src/main/res/layout/fragment_personal_chat.xml" value="0.33177083333333335" />
         <entry key="..\:/androidProgect/I-have-quest/app/src/main/res/layout/fragment_quest.xml" value="0.34375" />
         <entry key="..\:/androidProgect/I-have-quest/app/src/main/res/layout/fragment_quest_item.xml" value="0.416015625" />
         <entry key="..\:/androidProgect/I-have-quest/app/src/main/res/layout/fragment_registration.xml" value="0.33177083333333335" />
-        <entry key="..\:/androidProgect/I-have-quest/app/src/main/res/layout/fragment_second_navigation.xml" value="0.34375" />
+        <entry key="..\:/androidProgect/I-have-quest/app/src/main/res/layout/fragment_second_navigation.xml" value="0.3638888888888889" />
         <entry key="..\:/androidProgect/I-have-quest/app/src/main/res/menu/menu.xml" value="0.23333333333333334" />
       </map>
     </option>
