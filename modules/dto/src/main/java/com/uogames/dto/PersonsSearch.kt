@@ -1,3 +1,3 @@
-package com.uogames.network.data.dto
+package com.uogames.dto
 
 class PersonsSearch: ArrayList<Person>()

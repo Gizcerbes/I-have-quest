@@ -1,4 +1,4 @@
-package com.uogames.network.data.dto
+package com.uogames.dto
 
 data class Experience (
     val experience: Long,

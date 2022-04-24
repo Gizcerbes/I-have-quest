@@ -1,7 +1,7 @@
 package com.uogames.model
 
 import com.uogames.database.DatabaseRepository
-import com.uogames.database.dto.Health
+import com.uogames.dto.Health
 import com.uogames.network.Repository
 import com.uogames.network.data.dto.ResponseDTO
 import kotlinx.coroutines.launch

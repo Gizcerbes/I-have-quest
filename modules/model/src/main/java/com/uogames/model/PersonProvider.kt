@@ -3,7 +3,7 @@ package com.uogames.model
 import com.uogames.database.DatabaseRepository
 import com.uogames.network.Repository
 import com.uogames.network.data.dto.ResponseDTO
-import com.uogames.network.data.dto.Person
+import com.uogames.dto.Person
 import kotlinx.coroutines.launch
 
 class PersonProvider : Provider() {

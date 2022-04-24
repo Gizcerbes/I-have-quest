@@ -1,7 +1,7 @@
 package com.uogames.database.mapper
 
 import com.uogames.database.entity.ExperienceEntity
-import com.uogames.network.data.dto.Experience
+import com.uogames.dto.Experience
 
 object ExperienceMapper : Mapper<ExperienceEntity, Experience> {
     override fun ExperienceEntity.toDTO() = Experience(

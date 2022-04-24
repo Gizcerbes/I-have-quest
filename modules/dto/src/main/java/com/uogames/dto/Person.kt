@@ -1,4 +1,4 @@
-package com.uogames.network.data.dto
+package com.uogames.dto
 
 data class Person(
     val id: Long,

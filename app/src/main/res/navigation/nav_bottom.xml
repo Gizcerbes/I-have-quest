@@ -8,7 +8,7 @@
 
     <fragment
         android:id="@+id/navigation_map"
-        android:name="com.uogames.i_have_quest.ui.maps.MapsFragment"
+        android:name="com.uogames.i_have_quest.ui.maps.MapFragment"
         android:label="MapsFragment"
         />
 

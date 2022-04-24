@@ -1,6 +1,6 @@
 package com.uogames.network.data.mappers
 
-import com.uogames.network.data.dto.Characteristic
+import com.uogames.dto.Characteristic
 import com.uogames.network.data.entities.CharacteristicResponse
 
 object CharacteristicMapper : Mapper<CharacteristicResponse, Characteristic> {

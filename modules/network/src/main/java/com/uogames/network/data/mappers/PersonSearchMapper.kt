@@ -1,6 +1,6 @@
 package com.uogames.network.data.mappers
 
-import com.uogames.network.data.dto.PersonsSearch
+import com.uogames.dto.PersonsSearch
 import com.uogames.network.data.entities.PersonSearchResponse
 import com.uogames.network.data.mappers.PersonMapper.toDTO
 

@@ -24,7 +24,7 @@ class LoginFragment : DaggerFragment() {
 	@Inject
 	lateinit var factory: ViewModelFactory
 	private val model by lazy {
-		ViewModelProvider(requireActivity(), factory).get(LoginViewModel::class.java)
+		ViewModelProvider(requireActivity(), factory)[LoginViewModel::class.java]
 	}
 
 	override fun onCreateView(

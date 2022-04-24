@@ -2,11 +2,11 @@ package com.uogames.model
 
 import android.content.Context
 import com.uogames.database.DatabaseRepository
-import com.uogames.database.dto.Health
+import com.uogames.dto.Health
 import com.uogames.network.Repository
-import com.uogames.network.data.dto.Characteristic
-import com.uogames.network.data.dto.Experience
-import com.uogames.network.data.dto.Person
+import com.uogames.dto.Characteristic
+import com.uogames.dto.Experience
+import com.uogames.dto.Person
 import kotlinx.coroutines.launch
 
 class GameProvider private constructor(
@@ -84,4 +84,9 @@ class GameProvider private constructor(
 	fun getHealthById(id: Long, callback: (Health) -> Unit) =
 		health.getHealthById(id, networkRepository, database, callback)
 
+	fun setMyLocation(latitude: String, longitude: String) {
+		ioScope.launch {
+			networkRepository.setMyPosition(database.getAccessKey(),latitude, longitude)
+		}
+	}
 }

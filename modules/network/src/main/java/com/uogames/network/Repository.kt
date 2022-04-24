@@ -1,7 +1,7 @@
 package com.uogames.network
 
 import com.google.gson.Gson
-import com.uogames.database.dto.Health
+import com.uogames.dto.*
 import com.uogames.network.data.dto.*
 import com.uogames.network.data.entities.StatusResponse
 import com.uogames.network.data.mappers.CharacteristicMapper.toDTO
@@ -80,5 +80,10 @@ class Repository {
 
 	suspend fun getMyExperience(key: String): ResponseDTO<Experience> =
 		run({ api.getMyExperience(key) }) { any, status -> ResponseDTO(any?.toDTO(), status) }
+
+	suspend fun setMyPosition(key: String, latitude: String, longitude: String){
+		api.setMyLocation(key, latitude, longitude)
+	}
+
 
 }

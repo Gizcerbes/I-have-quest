@@ -1,6 +1,6 @@
 package com.uogames.network.data.mappers
 
-import com.uogames.network.data.dto.Experience
+import com.uogames.dto.Experience
 import com.uogames.network.data.entities.ExperienceResponse
 
 object ExperienceMapper : Mapper<ExperienceResponse, Experience> {

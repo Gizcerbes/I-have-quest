@@ -18,22 +18,27 @@
 			android:layout_marginEnd="7dp"
 			android:orientation="vertical">
 
-			<include
-				layout="@layout/card_personal_info"
-
+			<fragment
+				android:id="@+id/card_personal_info"
+				android:name="com.uogames.i_have_quest.ui.person.personInfo.PersonInfoFragment"
 				android:layout_width="match_parent"
 				android:layout_height="wrap_content"
 				android:layout_marginTop="7dp"
-				android:layout_marginBottom="7dp" />
+				android:layout_marginBottom="7dp"
+				tools:layout="@layout/card_personal_info" />
 
-			<include
-				layout="@layout/card_characteristic"
+			<fragment
+				android:id="@+id/card_characteristic"
+				android:name="com.uogames.i_have_quest.ui.person.characteristic.CharacteristicFragment"
 				android:layout_width="match_parent"
 				android:layout_height="wrap_content"
-				android:layout_marginBottom="7dp" />
+				android:layout_marginBottom="7dp"
+				tools:layout="@layout/card_characteristic" />
 
-			<include
-				layout="@layout/card_fight_experience"
+			<fragment
+				android:id="@+id/card_fight_experience"
+				android:name="com.uogames.i_have_quest.ui.person.fightExperience.FightExperienceFragment"
+				tools:layout="@layout/card_fight_experience"
 				android:layout_width="match_parent"
 				android:layout_height="wrap_content"
 				android:layout_marginBottom="7dp" />
@@ -55,8 +60,7 @@
 						android:layout_height="wrap_content"
 						android:layout_margin="7dp"
 						android:text="@string/equipment"
-						android:textSize="20sp"
-						/>
+						android:textSize="20sp" />
 
 				</com.google.android.material.card.MaterialCardView>
 

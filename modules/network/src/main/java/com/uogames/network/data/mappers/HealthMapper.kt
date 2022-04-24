@@ -1,6 +1,6 @@
 package com.uogames.network.data.mappers
 
-import com.uogames.database.dto.Health
+import com.uogames.dto.Health
 import com.uogames.network.data.entities.HealthResponse
 
 object HealthMapper : Mapper<HealthResponse, Health> {

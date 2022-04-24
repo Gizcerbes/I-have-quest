@@ -9,8 +9,10 @@ class BottomNavigationViewModel : ViewModel() {
 	private val _selectedItemID = MutableStateFlow(-1)
 	val selectedItemID = _selectedItemID.asStateFlow()
 
-	fun setItemID(id: Int){
+	fun setItemID(id: Int): Boolean {
+		val prev = _selectedItemID.value
 		_selectedItemID.value = id
+		return prev != id
 	}
 
 

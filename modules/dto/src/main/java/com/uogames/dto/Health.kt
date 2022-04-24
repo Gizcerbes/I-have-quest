@@ -1,4 +1,4 @@
-package com.uogames.database.dto
+package com.uogames.dto
 
 data class Health(
     val id: Long,

@@ -1,6 +1,6 @@
 package com.uogames.database.mapper
 
-import com.uogames.database.dto.Health
+import com.uogames.dto.Health
 import com.uogames.database.entity.HealthEntity
 
 object HealthMapper : Mapper<HealthEntity, Health> {

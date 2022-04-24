@@ -1,7 +1,7 @@
 package com.uogames.database
 
 import android.content.Context
-import com.uogames.database.dto.Health
+import com.uogames.dto.Health
 import com.uogames.database.entity.PropertyEntity
 import com.uogames.database.mapper.CharacteristicsMapper.toDTO
 import com.uogames.database.mapper.CharacteristicsMapper.toEntity
@@ -11,9 +11,9 @@ import com.uogames.database.mapper.HealthMapper.toDTO
 import com.uogames.database.mapper.HealthMapper.toEntity
 import com.uogames.database.mapper.PersonMapper.toDTO
 import com.uogames.database.mapper.PersonMapper.toEntity
-import com.uogames.network.data.dto.Characteristic
-import com.uogames.network.data.dto.Experience
-import com.uogames.network.data.dto.Person
+import com.uogames.dto.Characteristic
+import com.uogames.dto.Experience
+import com.uogames.dto.Person
 
 class DatabaseRepository private constructor(private val database: MyDatabase) {
 

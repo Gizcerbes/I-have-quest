@@ -1,6 +1,6 @@
 package com.uogames.network.data.mappers
 
-import com.uogames.network.data.dto.Person
+import com.uogames.dto.Person
 import com.uogames.network.data.entities.PersonResponse
 
 object PersonMapper : Mapper<PersonResponse, Person> {

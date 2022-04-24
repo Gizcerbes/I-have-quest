@@ -1,7 +1,7 @@
 package com.uogames.database.mapper
 
 import com.uogames.database.entity.CharacteristicEntity
-import com.uogames.network.data.dto.Characteristic
+import com.uogames.dto.Characteristic
 
 object CharacteristicsMapper : Mapper<CharacteristicEntity, Characteristic> {
     override fun CharacteristicEntity.toDTO(): Characteristic {
